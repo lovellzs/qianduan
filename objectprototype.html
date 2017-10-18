@@ -1,0 +1,482 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Object.prototype | 第四天笔记</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./04.html" />
+    
+    
+    <link rel="prev" href="./02.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="0.3" data-basepath="." data-revision="1488121717907">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         JS高级
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="0.1" data-path="01.html">
+            
+                
+                    <a href="./01.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         原型链结构图
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="02.html">
+            
+                
+                    <a href="./02.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         Object构造函数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="0.3" data-path="objectprototype.html">
+            
+                
+                    <a href="./objectprototype.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                         Object.prototype
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.4" data-path="04.html">
+            
+                
+                    <a href="./04.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                         静态成员和实例成员
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.5" data-path="05.html">
+            
+                
+                    <a href="./05.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                         Function构造函数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.6" data-path="argumentslengthcallee.html">
+            
+                
+                    <a href="./argumentslengthcallee.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.6.</b>
+                        
+                         arguments、length和callee
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.7" data-path="eval.html">
+            
+                
+                    <a href="./eval.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.7.</b>
+                        
+                         eval 简单说明
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.8" data-path="functionprototype.html">
+            
+                
+                    <a href="./functionprototype.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.8.</b>
+                        
+                         Function.prototype原型链
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.9" data-path="09.html">
+            
+                
+                    <a href="./09.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.9.</b>
+                        
+                         深拷贝和浅拷贝
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.10" data-path="number.html">
+            
+                
+                    <a href="./number.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.10.</b>
+                        
+                         Number原型扩展
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.11" data-path="with.html">
+            
+                
+                    <a href="./with.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.11.</b>
+                        
+                         With语句
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.12" data-path="12.html">
+            
+                
+                    <a href="./12.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.12.</b>
+                        
+                         图书管理小案例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >第四天笔记</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_316">
+                    
+                        <h1 id="objectprototype">Object.prototype</h1>
+<p>01 因为js中所有的对象都继承自Obejct,都可以使用Object对象的原型属性和方法,因此不要轻易的扩展Object.prototype。</p>
+<p>02 Object.property中的属性和方法</p>
+<pre><code> ① constructor 指向原型相关联的构造函数，为Object
+ ② hasOwnProperty 判断对象中是否拥有某个实例属性(不包括原型链上面的属性)
+ ③ isPrototypeOf  校验某个对象是否是指定对象的原型对象(整条原型链)
+ ④ propertyIsEnumerable 属性是否存在且可枚举(使用for循环可以遍历,即目标属性能否在for循环中显示出来)
+ ⑤ toString() 返回一个描述目标对象的字符串,对象则返回[object object]
+    toString(参数) 参数出可以传入一个用于进制数的参数,该参数的默认值为10(主要针对Number类型有效)
+ ⑥ toLocaleString 同toString,但是会做一些本地化的处理。
+ ⑦ valueOf()  如果该对象有对应的基本数据类型的值,则返回对应的基本数据类型值,如果没有则返回this本身。
+    Date对象调用该方法会返回一个时间戳。
+</code></pre><p><strong>constructor</strong></p>
+<p><code>说明：该属性指向创建该对象的构造函数，在这里为Object</code></p>
+<pre><code> function Person() {
+    }
+
+    var p = new Person();
+    console.log(p.constructor);                     //function Person() {}
+    console.log(Person.prototype.constructor);      //function Person() {}
+    console.log(Object.prototype.constructor);      //function Object() { [native code] }
+</code></pre><p><strong>hasOwnProperty</strong>
+<code>说明：判断对象中是否拥有某个实例属性(不包括原型链上面的属性)</code></p>
+<pre><code>    function Person() {
+        this.name = &quot;默认的姓名&quot;
+    }
+
+    //检查对象中是否拥有指定的属性(实例属性)
+    var p1 = new Person();
+    p1.hasOwnProperty(&quot;name&quot;);  //true
+    p1.hasOwnProperty(&quot;age&quot;);   //false
+    p1.hasOwnProperty(&quot;constructor&quot;);   //对象的constructor是从原型对象上继承的
+</code></pre><p><strong>isPrototypeOf </strong></p>
+<p><code>说明：校验某个对象是否是指定对象的原型对象(整条原型链);</code></p>
+<pre><code>&lt;script&gt;
+    var obj = {
+        name:&quot;张三&quot;,
+        age:20,
+        hello:function () {
+            console.log(&quot;hello&quot;);
+        },
+        showName:function () {
+            console.log(this.name);
+        }
+    }
+
+    //属性是否存在且可以枚举
+    console.log(obj.propertyIsEnumerable(&quot;name&quot;));      //true
+&lt;/script&gt;
+</code></pre><p><strong>toString</strong></p>
+<p><code>说明：返回一个描述目标对象的字符串,对象则返回[object object]</code></p>
+<pre><code>&lt;script&gt;
+
+    var obj = {};
+    console.log(obj.toString());  //打印[object Object]
+
+    var arr = [1,2,3,4,5];
+    console.log(arr.toString());    //打印1,2,3,4,5
+
+    var num = 10;
+    console.log(num.toString());               //10
+
+    var date = new Date();
+    console.log(date.toString());           //Mon Feb 13 2017 19:00:13 GMT+0800 (CST)
+
+    //toString方法可以传入参数,在处理Number类型数据的时候,可以传入指定的进制
+    console.log(num.toString(2));       //1010  == 1*2*2*2+0*2*2+1*2+1*1 = 10
+    console.log(num.toString(3));       //101   == 1*3*3 + 0*3 + 1*1 = 10
+&lt;/script&gt;
+</code></pre><p><strong>toLocaleString</strong>
+<code>说明：作用同toString方法一致，但是会做一些本地化的处理.</code></p>
+<p><strong>valueOf</strong></p>
+<p><code>说明：</code></p>
+<p><code>① 如果该对象有对应的基本数据类型的值,则返回对应的基本数据类型值,如果没有则返回this本身。</code></p>
+<p><code>② 如果是Date类型，则返回时间戳。</code></p>
+<pre><code>&lt;script&gt;
+    var obj = {};
+    console.log(obj + 1);       //[object Object]1
+    //说明:如果该对象有对应的基本数据类型的值,则返回对应的基本数据类型值,如果没有则返回this本身。
+
+    var  o = {name:&quot;张三&quot;};
+    console.log(o + 1); //[object Object]1
+
+    var date = new Date();
+    console.log(date.valueOf());        //1486984088998
+
+&lt;/script&gt;
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./02.html" class="navigation navigation-prev " aria-label="Previous page: Object构造函数"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./04.html" class="navigation navigation-next " aria-label="Next page: 静态成员和实例成员"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

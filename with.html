@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>With语句 | 第四天笔记</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./12.html" />
+    
+    
+    <link rel="prev" href="./number.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="0.11" data-basepath="." data-revision="1488121717907">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         JS高级
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="0.1" data-path="01.html">
+            
+                
+                    <a href="./01.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         原型链结构图
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="02.html">
+            
+                
+                    <a href="./02.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         Object构造函数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.3" data-path="objectprototype.html">
+            
+                
+                    <a href="./objectprototype.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                         Object.prototype
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.4" data-path="04.html">
+            
+                
+                    <a href="./04.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                         静态成员和实例成员
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.5" data-path="05.html">
+            
+                
+                    <a href="./05.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                         Function构造函数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.6" data-path="argumentslengthcallee.html">
+            
+                
+                    <a href="./argumentslengthcallee.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.6.</b>
+                        
+                         arguments、length和callee
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.7" data-path="eval.html">
+            
+                
+                    <a href="./eval.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.7.</b>
+                        
+                         eval 简单说明
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.8" data-path="functionprototype.html">
+            
+                
+                    <a href="./functionprototype.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.8.</b>
+                        
+                         Function.prototype原型链
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.9" data-path="09.html">
+            
+                
+                    <a href="./09.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.9.</b>
+                        
+                         深拷贝和浅拷贝
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.10" data-path="number.html">
+            
+                
+                    <a href="./number.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.10.</b>
+                        
+                         Number原型扩展
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="0.11" data-path="with.html">
+            
+                
+                    <a href="./with.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.11.</b>
+                        
+                         With语句
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.12" data-path="12.html">
+            
+                
+                    <a href="./12.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.12.</b>
+                        
+                         图书管理小案例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >第四天笔记</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_317">
+                    
+                        <h1 id="with">With语句</h1>
+<p><strong>with语句简单介绍</strong></p>
+<pre><code>with语句是js中一个强大但有争议的特性。
+with语句允许我们将一个对象的所有属性引用到当前的作用域
+允许我们无需使用拥有者对象的前缀，就可以直接对这些属性进行引用和赋值操作。
+</code></pre><p><code>注意</code>：ECMAScript5规范在严格模式下已经禁用了该语句，在开发中不推荐使用，但是要求能够看懂with的代码。</p>
+<p><strong>with语句内部细节</strong></p>
+<p><code>说明</code>： with语句会创建一个作用域，在该作用域内，在引用特定对象的属性时，可以不使用前缀。</p>
+<p>应用场景：<code>对深层级对象的引用进行缩短</code>。</p>
+<hr>
+<p><strong>在with作用域内部引用属性</strong></p>
+<pre><code>//[01] 测试with语句作用域内对对象属性的引用
+//01 提供全局变量,名称为testValue
+var testValue = &#39;测试使用的全局变量&#39;;
+
+//02 提供对象,对象内部提供属性
+var testObject = {
+    name:&#39;对象的名称属性&#39;,
+    testValue:&#39;对象内部的属性&#39;
+};
+
+//03 使用with语句引用
+with(testObject)
+{
+    console.log(name);          //对象的名称属性
+    console.log(testValue);     //对象内部的属性
+    console.log(this);          //window
+}
+
+console.log(testValue);         //测试使用的全局变量
+</code></pre><p>总结：</p>
+<p><code>(1) 在with语句作用域内,对象属性的优先级绝对高于在更层级作用域内定义的同名变量</code></p>
+<p><code>(2) this(函数上下文)依然指向window,并不会收到with作用域的影响</code></p>
+<hr>
+<p><strong>在with作用域内进行赋值操作</strong></p>
+<pre><code>
+   //01 提供一个对象,在内部提供属性
+    var obj = {
+        name:&#39;对象的内部属性&#39;,
+    }
+
+    //02 with语句测试对对象属性的赋值操作
+    with(obj)
+    {
+        name = &#39;修正对象中name的值&#39;;
+        //在作用域内部添加变量(思考?该变量是添加为全局作用域还是当前obj对象的属性?)
+        age = &#39;25&#39;;
+        showName = function () {
+            console.log(&#39;name == &#39; + name);
+        };
+    };
+
+    //测试修改对象属性操作
+    console.log(obj.name);
+    //测试添加对象属性操作
+    console.log(obj.age);             //undefined
+    //obj.showName();                 //obj.showName is not a function
+    console.log(&#39;____________________&#39;);
+    console.log(this.name); //== name == window.name
+    console.log(window.name);
+    console.log(name);
+    showName();             //==this.showName() ==window.showName()
+</code></pre><p>总结：</p>
+<p><code>（1）在with作用域的内部我们可以使用无前缀引用对象的属性进行读取和赋值的操作 但是 不能使用无前缀的方式添加属性</code></p>
+<p><code>（2）如果使用无前缀的方式来添加属性[对不存在的属性进行赋值操作],那么属性将被添加到全局上下文[window|this]</code></p>
+<p><code>（3）可能产生的错误:意外的引入一个全局变量,而非为with作用域对象添加属性</code></p>
+<p>with语句的问题</p>
+<p><code>（1）with作用域内操作优先级混乱</code></p>
+<p><code>（2）性能不好，会大大降低js代码的执行性能</code></p>
+<p><code>（3）ECMAScript5规定在严格模式下禁用with特性</code></p>
+<hr>
+<p><strong>with语句简化代码的替代方案</strong></p>
+<p>使用即时调用函数来替代with语句，通过函数传参的方式使用更短的引用来替代冗长的引用前缀比使用with语句消除前缀的方式更好。</p>
+<pre><code>    with(this.style)
+    {
+        width = &#39;200px&#39;;
+        height = &#39;200px&#39;;
+        backgroundColor = &#39;#ca3&#39;;
+        console.log(width); //要访问的本应该是外部的字符串变量 &quot;错误哈哈&quot;,但是这里被解释为200px
+    }
+
+    (function (s) {
+        s.width = &#39;200px&#39;;
+        s.height = &#39;200px&#39;;
+        s.backgroundColor = &#39;#ca3&#39;;
+    })(this.style);
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./number.html" class="navigation navigation-prev " aria-label="Previous page: Number原型扩展"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./12.html" class="navigation navigation-next " aria-label="Next page: 图书管理小案例"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
