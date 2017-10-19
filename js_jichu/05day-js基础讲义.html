@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>05day-js基础讲义</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>05day-js基础讲义</h2>
+<h4>01-获取孩子节点</h4>
+<ul>
+<li>childNodes 获取的包括文本</li>
+<li>
+<p>nodeType 为1是标签 为2是属性 为3是文本</p>
+<pre><code>var box = document.getElementById('box');
+var btns = box.childNodes;
+//    console.log(btns);
+
+var arrNode = [];
+for (var i = 0; i&lt;btns.length; i++){
+    if (btns[i].nodeType == 1){
+        // 标签元素
+        arrNode.push(btns[i]);
+    }
+}
+console.log(arrNode);
+</code></pre>
+
+</li>
+<li>children 直接可以获取到元素节点</li>
+</ul>
+<h4>02-获取兄弟节点</h4>
+<ul>
+<li>nextElementSibling 在IE9以上用这个</li>
+<li>nextSibling IE9一下用这个</li>
+<li>兼容写法 var next3 = btn.nextElementSibling || btn.nextSibling;</li>
+</ul>
+<h4>03-获取父亲节点</h4>
+<pre><code> // 获取父亲节点
+console.log(btn.parentNode);
+</code></pre>
+
+<h4>03-通过类名获取标签的封装</h4>
+<ul>
+<li>getElementsByClassName() 在IE9以下无效</li>
+<li>
+<p>兼容写法</p>
+<pre><code>// 兼容写法
+function getEleClassName(dom,className) {
+    if (dom.getElementsByClassName){
+        // 此方法可以识别
+        return dom.getElementsByClassName(className);
+    }else {
+        // 方法不能识别 *通配符选择器,可以获取dom下面的所有标签
+        var eles = dom.getElementsByTagName('*');
+        // 存放标签
+        var tempArr = [];
+        for(var i = 0; i&lt;eles.length; i++){
+            if (eles[i].className == className){
+                tempArr.push(eles[i]);
+            }
+        }
+        return tempArr;
+    }
+}
+</code></pre>
+
+</li>
+</ul>
+<h4>04-节点的使用&amp;九宫格动态创建</h4>
+<pre><code>// 1.获取标签
+var btns = document.getElementById('box').getElementsByTagName('button');
+var bottom = document.getElementById('bottom');
+// 2.添加节点
+// 用来存放节点
+var array = [];
+// 总列数
+var count = 3;
+// 当前行号
+var row = 0;
+// 当前列号
+var col = 0;
+// 间距
+var margin = 10;
+// 添加节点
+btns[0].onclick = function () {
+    // 2.1 创建节点
+    var div = document.createElement('div');
+    bottom.appendChild(div);
+    div.className = 'curr';
+    // 添加到数组
+    array.push(div);
+    // 遍历
+    for (var i = 0; i &lt; array.length; i++) {
+        row = parseInt(i / count);
+        col = i % count;
+        array[i].style.left = col * (100 + margin) + 'px';
+        array[i].style.top = row * (100 + margin) + 'px';
+    }
+};
+// 删除节点
+btns[1].onclick = function () {
+    // 删除节点
+    bottom.removeChild(array.pop());
+}
+</code></pre>
+
+<h4>05-发微博</h4>
+<pre><code>// 1.获取标签
+var box = document.getElementById('box');
+var textA = box.children[0];
+var btn = box.children[1];
+var oul = box.children[2];
+
+// 2.添加点击事件
+btn.onclick = function () {
+    var content = textA.value;
+    if (content == ''){
+        // 判断有没有内容,如果没有内容直接返回
+        alert('请输入内容');
+        return;
+    }
+
+    // 1.创建li
+    var oli = document.createElement('li');
+    var oa = document.createElement('a');
+    oa.innerHTML = '删除';
+    oli.innerHTML = textA.value;
+    oli.appendChild(oa);
+
+    // 清空内容
+    textA.value = '';
+    oul.insertBefore(oli,oul.children[0]);
+//        if(oul.children.length &gt; 0){
+
+//        }else {
+//            // 第一次添加到头部
+//            oul.appendChild(oli);
+//        }
+    // 给a标签绑定事件
+    oa.onclick = function () {
+        oul.removeChild(this.parentNode);
+    }
+}
+</code></pre>
+
+<h4>06-日期对象的认识</h4>
+<ul>
+<li>getFullYear()	从 Date 对象以四位数字返回年份。</li>
+<li>getMonth()	从 Date 对象返回月份 (0 ~ 11)。</li>
+<li>getDate()	从 Date 对象返回一个月中的某一天 (1 ~ 31)。</li>
+<li>getHours()	返回 Date 对象的小时 (0 ~ 23)。</li>
+<li>getMinutes()	返回 Date 对象的分钟 (0 ~ 59)。</li>
+<li>getSeconds()	返回 Date 对象的秒数 (0 ~ 59)。</li>
+<li>getMilliseconds()	返回 Date 对象的毫秒(0 ~ 999)。</li>
+<li>getTime()	返回 1970 年 1 月 1 日至今的毫秒数。 时间戳</li>
+<li>valueOf()	返回 Date 对象的原始值。 时间戳</li>
+</ul>
+<p>1969年8月,贝尔实验室的程序员肯汤普逊利用B编译语言，创造了C语言.
+最初计算机操作系统是32位，而时间也是用32位表示。也就是说32位能表示的最长时间是68年，而实际上到2038年01月19日03时14分07秒，便会到达最大时间，过了这个时间点，所有32位操作系统时间便会变为10000000 00000000 00000000 00000000，也就是1901年12月13日20时45分52秒，这样便会出现时间回归的现象，很多软件便会运行异常了。</p>
+<p>到这里，我想问题的答案已经出来了:因为用32位来表示时间的最大间隔是68年，而最早出现的UNIX操作系统考虑到计算机产生的年代和应用的时限综合取了1970年1月1日作为UNIX TIME的纪元时间(开始时间)，至于时间回归的现象相信随着64为操作系统的产生逐渐得到解决，因为用64位操作系统可以表示到292,277,026,596年12月4日15时30分08秒，相信我们的N代子孙，哪怕地球毁灭那天都不用愁不够用了，因为这个时间已经是千亿年以后了。</p>
+<h4>07-自定义时间</h4>
+<ul>
+<li>
+<p>如果括号里面没有写日期,就是代表默认获取当前的时间,如果写了就是自定义的时间</p>
+<pre><code> // 1.自定义时间
+// 如果括号里面没有写日期,就是代表默认获取当前的时间,如果写了就是自定义的时间
+var date = new Date('2018/2/23 10:10:10');
+console.log(date.getFullYear());
+console.log(date.getMonth());
+console.log(date.getDate());
+var mins = date.getTime();
+
+// 计算事件差
+var nowDate = new Date();
+// 获取当前的毫秒数
+var nowMins = nowDate.getTime();
+
+console.log(mins);
+console.log(nowMins);
+console.log(mins - nowMins);
+</code></pre>
+
+</li>
+</ul>
+<h4>08-钟表案例</h4>
+<pre><code>// 1.获取标签
+var h = document.getElementById('hour');
+var m = document.getElementById('minute');
+var s = document.getElementById('second');
+
+// 2.获取当前的时分秒
+setInterval(function () {
+    var date = new Date();
+    // 获取毫秒
+//        var minSecond = date.getMilliseconds();
+
+    // 秒针
+    var second = date.getSeconds();
+    // 分针
+    var minute = date.getMinutes();
+    // 时针
+    var hour = date.getHours()%12 + minute/60;
+
+    // 2.2旋转
+    // 秒针
+    s.style.transform = 'rotate('+ second*6 +'deg)';
+    m.style.transform = 'rotate('+ minute*6 +'deg)';
+    h.style.transform = 'rotate('+ hour*30 +'deg)';
+},100)
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

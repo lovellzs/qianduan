@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>06day-js基础讲义</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>06day-js基础讲义</h2>
+<h4>01-js对象</h4>
+<ul>
+<li>
+<p>1.对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：</p>
+<pre><code>var person={name:&quot;coderYJ&quot;, age:18};
+</code></pre>
+
+</li>
+<li>
+<p>还可以这样声明</p>
+<pre><code> var person={
+name : &quot;coderYJ&quot;,
+age:18
+};
+</code></pre>
+
+</li>
+<li>
+<p>对象属性有两种寻址方式：</p>
+<ul>
+<li>如果用 . 来访问对象里面的值,这个名称必须是对象里面的属性,如果不是就访问不到</li>
+<li>
+<p>如果用 [] 来访问,[]里面的可以是一个变值</p>
+<pre><code>var name=person.name;
+var name=person[&quot;name&quot;];
+</code></pre>
+
+</li>
+</ul>
+</li>
+<li>
+<p>2.js对象的遍历</p>
+<pre><code>var person = {name:&quot;coderYJ&quot;, age:18};
+// 采用增强for循环来遍历js对象
+for(var k in person){
+    console.log(k);
+    console.log(person[k]);
+}
+</code></pre>
+
+</li>
+</ul>
+<h4>02-根据js对象动态设置属性</h4>
+<pre><code>// 1.获取标签
+var box = document.getElementById('box');
+
+// 2.设置属性
+//    box.style.width = '200px';
+//    box.style.height = '200px';
+//    box.style.background = 'red';
+// 网络返回数据
+var attr = {width:'200px',height:'200px',background:'yellow'};
+
+// 动态设置
+for(var k in attr){
+    box.style[k] = attr[k];
+}
+</code></pre>
+
+<h4>03-json动态创建节点</h4>
+<ul>
+<li>
+<p>1.JSON 是 JS 对象的字符串表示法，它使用文本表示一个 JS 对象的信息，本质是一个字符串。</p>
+<pre><code>// 1.json数据
+var data = {
+    &quot;box&quot;:[
+        {&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:18,&quot;sex&quot;:&quot;男&quot;},
+        {&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:19,&quot;sex&quot;:&quot;女&quot;},
+        {&quot;name&quot;:&quot;王五&quot;,&quot;age&quot;:20,&quot;sex&quot;:&quot;男&quot;},
+        {&quot;name&quot;:&quot;王五&quot;,&quot;age&quot;:20,&quot;sex&quot;:&quot;女&quot;}
+    ]
+};
+// 2.去除数据
+var dataArray = data['box'];
+
+var obody = document.body;
+
+// 3.设置数据
+for(var i = 0; i&lt;dataArray.length; i++){
+    // 3.1创建元素
+    var div = document.createElement('div');
+    obody.appendChild(div);
+    var ul = document.createElement('ul');
+    div.appendChild(ul);
+
+    // 3.2取出数据
+    var json = dataArray[i];
+    for(var k in json){
+        var li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML = k + &quot;:&quot; +  json[k];
+    }
+}
+</code></pre>
+
+</li>
+</ul>
+<h4>04-设置节点的第二种方法</h4>
+<pre><code>&lt;div id=&quot;box&quot; title=&quot;123&quot; abcd=&quot;456&quot;&gt;&lt;/div&gt;
+var box = document.getElementById('box');
+// 预先绑定的属性
+//    box.setAttribute('title','123');
+
+// 绑定类名
+//    box.className = 'box';
+/*
+第一个参数是要绑定的属性名称
+第二个参数是要绑定属性值
+* setAttribute()
+* */
+box.setAttribute('class','box');
+
+// 获取属性
+console.log(box.getAttribute('title'));
+console.log(box.getAttribute('abcd'));
+</code></pre>
+
+<h4>05-常用的方法抽取</h4>
+<pre><code>function $(id) {
+    return document.getElementById(id);
+}
+function getEleTagName(dom,tagName) {
+    return dom.getElementsByTagName(tagName);
+}
+// 遍历dom
+function each(dom,fn) {
+    for(var i = 0; i&lt;dom.length; i++){
+//            console.log(btns[i].innerHTML);
+        // 要做的事情我们并不知道,所以需要外界决定
+        fn(dom[i],i);
+    }
+}
+// 使用函数
+each(btns,function (obj,i) {
+    console.log(obj.innerHTML);
+    console.log(i);
+});
+</code></pre>
+
+<ul>
+<li>
+<p>抽取js工具类</p>
+<pre><code>function $(id) {
+    return document.getElementById(id);
+}
+function getEleTagName(dom,tagName) {
+    return dom.getElementsByTagName(tagName);
+}
+// 遍历dom
+function each(dom,fn) {
+    for(var i = 0; i&lt;dom.length; i++){
+//            console.log(btns[i].innerHTML);
+        // 要做的事情我们并不知道,所以需要外界决定
+        fn(dom[i],i);
+    }
+}
+</code></pre>
+
+</li>
+</ul>
+<h4>07-事件对象的认识</h4>
+<ul>
+<li>
+<p>当触发事件的时候系统会在事件指令中传入事件对象,这个事件对象包含了所有与事件有关的信息。所有浏览器都支持event对象，但支持的方式不同。 普通浏览器支持 event IE 678 支持 window.event
+<img src="images/event.png" /></p>
+<pre><code>    box.onclick = function (event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        console.log(x,y);
+    }
+    // 最大事件源
+    // 可以获取浏览器窗口的任意位置的x,y值
+    // event 在IE9一下不兼容
+    // IE9一下用 window.event
+    document.onclick = function (eve) {
+        // 兼容写法
+        var event = eve || window.event;
+        var x = event.clientX;
+        var y = event.clientY;
+        console.log(x,y);
+    }
+</code></pre>
+
+</li>
+<li>
+<p>2.通过最大事件源可以获取网页的内容</p>
+<pre><code>// 通过最大事件源可以获取网页的元素,并把一些东西写入
+console.log(document.body);
+console.log(document.title);
+console.log(document.documentElement);
+// 在网页里面写入内容
+document.write('hello world');
+</code></pre>
+
+</li>
+</ul>
+<h4>08-天使案例</h4>
+<pre><code>// 1.获取天使
+var oSpan = document.getElementById('oSpan');
+
+// 2.添加事件
+var timer = null;
+// 初始值
+var beginX = 0;
+var beginY = 0;
+
+document.onmousemove = function (eve) {
+    // 清空定时器
+    clearInterval(timer);
+    // 事件对象必须放在定时器外面,否则访问不到
+    var event = eve || window.event;
+
+    // 目标值
+    var targetX = event.clientX;
+    var targetY = event.clientY;
+
+    timer = setInterval(function () {
+        // 缓动动画
+        beginX = beginX + (targetX - beginX) / 10;
+        beginY = beginY + (targetY - beginY) / 10;
+
+        oSpan.style.left = beginX + 'px';
+        oSpan.style.top = beginY + 'px';
+    },100)
+}
+</code></pre>
+
+<h4>09-offset家族</h4>
+<p><img src="images/frames.png" /></p>
+<ul>
+<li>1.offsetHeight = height + padding + border</li>
+<li>2.offsetWidth = width + padding + border</li>
+<li>3.offsetLeft 相对于祖先元素定位的左边距离</li>
+<li>4.offsetTop 相对于祖先元素定位的上边距离</li>
+<li>5.offsetParent 获取祖先定位的元素的盒子</li>
+</ul>
+<h4>10-鼠标拖拽案例</h4>
+<pre><code>// 1.获取标签
+var box = document.getElementById('box');
+box.onmousedown = function (eve) {
+    var event = eve || window.event;
+
+    // 计算距离
+    var distanceX = event.clientX - box.offsetLeft;
+    var distanceY = event.clientY - box.offsetTop;
+
+    // 鼠标移动的时候就会调用
+    document.onmousemove = function (eve) {
+        var event = eve || window.event;
+        box.style.left = event.clientX - distanceX + 'px';
+        box.style.top = event.clientY - distanceY + 'px';
+    }
+};
+document.onmouseup = function () {
+    // 当鼠标抬起来的时候情况事件源
+    document.onmousemove = null;
+}
+</code></pre>
+
+<h5>11-滚动事件的认识</h5>
+<pre><code>// 只要浏览器滚动就会调用这个方法
+window.onscroll = function () {
+    // 获取滚动距离
+    // IE document.body.scrollTop不支持
+    // 兼容写法
+    var del = document.body.scrollTop || document.documentElement.scrollTop;
+
+    console.log(del);
+}
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

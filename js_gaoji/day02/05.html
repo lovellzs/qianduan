@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>自定义构造函数创建对象 | 第二天笔记</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./06.html" />
+    
+    
+    <link rel="prev" href="./04.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="0.5" data-basepath="." data-revision="1486628107350">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         JS高级
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="0.1" data-path="01.html">
+            
+                
+                    <a href="./01.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         面向对象的三大特性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="02.html">
+            
+                
+                    <a href="./02.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         字面量方式创建对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.3" data-path="03.html">
+            
+                
+                    <a href="./03.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                         内置构造函数创建对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.4" data-path="04.html">
+            
+                
+                    <a href="./04.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                         工厂函数创建对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="0.5" data-path="05.html">
+            
+                
+                    <a href="./05.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                         自定义构造函数创建对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.6" data-path="06.html">
+            
+                
+                    <a href="./06.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.6.</b>
+                        
+                         构造函数的使用注意
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.7" data-path="07.html">
+            
+                
+                    <a href="./07.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.7.</b>
+                        
+                         原型对象
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.8" data-path="08.html">
+            
+                
+                    <a href="./08.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.8.</b>
+                        
+                         原型对象的使用注意
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >第二天笔记</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_2696">
+                    
+                        <h1 id="">自定义构造函数创建对象</h1>
+<p><strong>基本写法</strong></p>
+<pre><code>    function 构造函数名(参数1,参数2,参数3...) {
+        //设置对象的属性
+        this.属性01 = 参数1;
+        this.属性02 = 参数2;
+
+        //设置对象的方法
+        this.方法01 = function () {
+            //.....
+        };
+        this.方法02 = function () {
+            //.....
+        }
+    }
+
+    //自定义构造函数方式创建对象
+    var 对象01 = new 构造函数名(实参01,实参02,实参03...);
+    var 对象02 = new 构造函数名(实参01,实参02,实参03...);
+</code></pre><p><strong>代码示例</strong></p>
+<pre><code>    function CreateBook (name,price,author,press) {
+        this.name = name;
+        this.price = price;
+        this.author = author;
+        this.press = press;
+        this.read = function () {
+            console.log(&quot;我的书名为:&quot;+this.name+&quot;,作者为&quot;+this.author+&quot;....&quot;);
+        };
+    }
+
+    var b1 = new CreateBook(&quot;声名狼藉者的的生活&quot;,&quot;42.00&quot;,&quot;福柯&quot;,&quot;北京大学出版社&quot;);
+    var b2 = new CreateBook(&quot;人性的枷锁&quot;,&quot;49.00&quot;,&quot;毛姆&quot;,&quot;华东师范大学出版社&quot;);
+    var b3 = new CreateBook(&quot;悟空传&quot;,&quot;28.00&quot;,&quot;今何在&quot;,&quot;湖南文艺出版社&quot;);
+
+    //打印对象的属性,并调用对象的方法测试
+    console.log(b1.author);
+    console.log(b2.author);
+    console.log(b3.author);
+    b1.read();
+    b2.read();
+    b3.read();
+</code></pre><p><strong>构造函数与new关键字</strong></p>
+<p>构造函数和普通函数的区别：函数的首字母大写</p>
+<p>构造函数的作用:用于完成对象的初始化</p>
+<p>new关键字的作用：用于创建对象（Object类型）</p>
+<p><strong>自定义构造函数和简单工厂函数的对比</strong></p>
+<pre><code>① 函数的首字母大写(用于区别构造函数和普通函数)
+② 创建对象的过程是由new关键字实现
+③ 在构造函数内部会自动的创建新对象,并赋值给this指针
+④ 自动返回创建出来的对象
+</code></pre><p><strong>构造函数的执行过程</strong></p>
+<p><code>① 使用new关键字创建对象</code></p>
+<p><code>② 把新创建出来的对象赋值给this</code></p>
+<p><code>③ 在构造函数内部,使用this为新创建出来的对象设置属性和方法</code></p>
+<p><code>④ 默认返回新创建的对象(普通函数如果不显示的return则默认返回undefined)。</code></p>
+<p><strong>构造函数的返回值</strong></p>
+<p>01 如果在构造函数中没有显示的return,则默认返回的是新创建出来的对象</p>
+<p>02 如果在构造函数中显示的return,则依照具体的情况处理</p>
+<pre><code>[01] return 的是对象,则直接返回该对象,取而代之本该默认返回的新对象
+[02] return 的是null或基本数据类型值,则返回新创建的对象
+</code></pre><p><strong>构造函数方式创建对象存在的问题</strong></p>
+<p><code>每次创建对象,都会重新创建函数，那么如果创建的对象数量很多,而对象方法内部的实现一模一样,则造成了资源浪费</code></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./04.html" class="navigation navigation-prev " aria-label="Previous page: 工厂函数创建对象"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./06.html" class="navigation navigation-next " aria-label="Next page: 构造函数的使用注意"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

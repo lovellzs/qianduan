@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>01day-js基础</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>01day-js基础</h2>
+<h4>1.历史</h4>
+<ul>
+<li>
+<p>1.什么是JavaScript</p>
+<ul>
+<li>1995年在网景公司，发明的JavaScript。一开始JavaScript叫做LiveScript，但是由于当时Java这个语言特别火，就改名为JavaScript,同时期还有其他的网页语言，比如VBScript、JScript等等，但是后来都被JavaScript打败，所以现在的浏览器中，只运行一种脚本语言就是JavaScript,简称:JS。</li>
+</ul>
+</li>
+<li>
+<p>2.JavaScript与ECMAScript的关系</p>
+<ul>
+<li>ECMAScript是一种由Ecma国际前身为欧洲计算机制造商协会,英文名称是European Computer Manufacturers Association，制定的标准。
+JavaScript是由公司开发而成的，公司开发而成的一定是有一些问题，不便于其他的公司拓展和使用。所以欧洲的这个ECMA的组织，牵头制定JavaScript的标准，取名为ECMAScript。
+简单来说ECMAScript不是一门语言，而是一个标准。符合这个标准的比较常见的有：JavaScript、Action Script（Flash中用的语言）</li>
+</ul>
+</li>
+<li>
+<p>3.JavaScript作用</p>
+<ul>
+<li>
+在HTML网页中，主要分为三大块:HTML、CSS、JavaScript
+<ul>
+<li>HTML从语义上构造网页</li>
+<li>CSS从审美上美化界面</li>
+<li>JavaScript从交互上提升用户的用户体验</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4.js被称为对初学者友好的语言</li>
+</ul>
+<h3>2.第一个JavaScript程序</h3>
+<ul>
+<li>
+1.Script标签的说明
+<ul>
+<li>位置: 可以放在html中的任意位置,但是最好放在body的结束标签上面 </li>
+<li>和style标签一样type可以省略不写</li>
+</ul>
+</li>
+<li>
+<p>2.演示helloWorld</p>
+<pre><code>// 括号里面只能放字符串/数值/元素/对象
+alert('hello world');
+</code></pre>
+
+</li>
+<li>
+<p>3.JavaScript中的注释</p>
+<ul>
+<li>单行注释: 以 // 开头,后面的内容就是注视</li>
+<li>快捷键  ctr(cmd) + /</li>
+<li>多行注释: /**/ 多行注释可以换行,但是不能嵌套</li>
+<li>快捷键 ctr(cmd) + shift + /</li>
+</ul>
+</li>
+</ul>
+<h3>3.变量</h3>
+<ul>
+<li>1.概念: 变量是用来存储信息的容器</li>
+<li>
+<p>2.使用一个变量分为3步</p>
+<pre><code>a.声明变量 用var来定义一个变量例如 var a;
+b.赋值 赋值采用 = 来赋值  a=10;
+c.使用
+声明的一个变量的时候可以直接赋值 例如 var b = 20;
+</code></pre>
+
+</li>
+<li>
+<p>3.变量的命名规范</p>
+<pre><code>1.以字母 a-z A-Z 数字0-9 字符 _ $ 组成
+2.变量不能以数字开头, 不能使用关键字命名
+3.变量的命名采用驼峰命名法 首个单词字母小写,后面的单词首字母大写 例如 lastName
+</code></pre>
+
+<ul>
+<li>变量命名不能和保留字重名
+<img src="images/js_word.png" />
+<img src="images/js_word1.png" /></li>
+</ul>
+</li>
+<li>
+<p>4.变量的类型</p>
+<ul>
+<li>
+<p>变量类型为5种</p>
+<ul>
+<li>字符串(string) </li>
+<li>数字(number) 0-9</li>
+<li>布尔(boolean) true/false</li>
+<li>对象(object)</li>
+<li>未定义(undefined)</li>
+</ul>
+<p>用 console.log(typeof a);来查看输出的类型</p>
+<p>typeof 关键字用来输出变量的类型</p>
+</li>
+</ul>
+</li>
+<li>
+<p>5.控制台输出</p>
+<pre><code>console.log(1); // 输出普通日志
+console.warn('1'); // 输出警告日志
+console.error('1'); // 输出错误日志
+输出日志的快捷键
+a.log + enter
+</code></pre>
+
+</li>
+</ul>
+<h3>4.运算符</h3>
+<ul>
+<li>
+<p>1.算数运算符 + - * / %(取余/取模) ++ --</p>
+<pre><code>var a = 5;
+var b = 10;
+var c = a + b;
+var d = a - b;
+var e = a * b;
+var f = a / b;
+var g = a % b;
+a++;
+a--;
+</code></pre>
+
+</li>
+<li>
+<p>2.算数运算符的优先级, 先乘除(取余)后加减</p>
+<pre><code>var a = 2 + 3 * 4; 结果是 14
+如果想提升优先级的话用 ()来提升
+var a = (2 + 3) * 4; 输出 20
+如果要 a = a + 5;可以简写成 a+=5;
+</code></pre>
+
+</li>
+<li>
+<p>3.关系运算符</p>
+<pre><code>&gt; &lt; == &gt;= &lt;= != ===
+</code></pre>
+
+<ul>
+<li>关系运算符得到的结果为布尔值 </li>
+<li>关系运算符不能连用,如果想连用用逻辑运算符</li>
+</ul>
+</li>
+<li>
+<p>4.逻辑运算符 </p>
+<pre><code>&amp;&amp; || !
+&amp;&amp; 有假则为假
+|| 有真则为真
+! 取反
+</code></pre>
+
+<ul>
+<li>逻辑运算符参与运算的是布尔值</li>
+</ul>
+</li>
+</ul>
+<h4>5.if语句</h4>
+<ul>
+<li>
+<p>1.if语句</p>
+<pre><code>在开发中需要判断条件执行代码的时候需要用if语句
+if(判断条件){
+    当条件为真的时候执行代码
+}
+</code></pre>
+
+</li>
+<li>
+<p>2.if else</p>
+<pre><code>if(判断条件){
+    当条件为真的时候执行代码块
+}else{
+    当条件为假的时候执行代码块
+}
+</code></pre>
+
+<p>else 可以省略</p>
+</li>
+<li>
+3.三目运算符:  判断条件 ?  语句1 : 语句2
+<ul>
+<li>当判断条件为真执行语句1, 为假 执行语句2	</li>
+</ul>
+</li>
+<li>
+<p>4.if else语句 特点: 只能执行一个代码块</p>
+<pre><code>if(判断条件1){
+    当为真的时候执行代码块 1
+}else if(判断条件2){
+    当为真的时候执行代码块 2
+}else if(判断条件3){
+    当为真的时候执行代码块3
+}else if(判断条件4){
+    当为真的时候执行代码块 4
+}else if(判断条件5){
+    当为真的时候执行代码块 5
+} 
+...
+else{
+    当以上所有的条件都不为真的时候执行代码块
+}
+</code></pre>
+
+</li>
+</ul>
+<h4>6.switch语句</h4>
+<pre><code>switch (变量){
+    case 值1:
+        语句1;
+        break;
+    case 值2:
+        语句2;
+        break;
+    case 值3:
+        语句3;
+        break;
+    case 值4:
+        语句4;
+        break;
+    ...
+    default:
+        语句n;
+        break;
+}
+使用 break 来阻止代码自动地向下一个 case 运行
+</code></pre>
+
+<p>案例星期一到星期日</p>
+<h4>7.循环</h4>
+<ul>
+<li>
+<p>1.for循环</p>
+<pre><code>for（单次表达式;条件表达式;末尾循环体）
+{
+    中间循环体；
+}
+</code></pre>
+
+<ul>
+<li>终止循环用break </li>
+<li>终止本次循环用continue</li>
+</ul>
+</li>
+<li>
+<p>2.while循环</p>
+<pre><code>while(判断条件){
+    循环体 
+}
+</code></pre>
+
+</li>
+<li>
+<p>3.do-while循环</p>
+<pre><code>do{
+    循环体
+}while(判断条件)
+</code></pre>
+
+<p>while循环和do-while循环的区别是 do-while循环先执行代码,再判断,while循环是先判断再执行代码</p>
+</li>
+</ul>
+<h4>8.函数</h4>
+<ul>
+<li>1.函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块 </li>
+<li>
+<p>2.函数是用来封装特定的功能的代码块 利用函数可以提高代码的复用性</p>
+<pre><code>function 函数名() {
+   函数体/要执行的代码
+}   
+函数只有调用的时候才会执行封装的代码
+函数调用 函数名()
+</code></pre>
+
+</li>
+<li>
+<p>3.函数可以传递参数</p>
+<pre><code>function sum(a,b) {
+    alert(a+b);
+}
+sum(1,2);
+</code></pre>
+
+</li>
+<li>
+<p>4.获取函数实际传入参数的个数,和定义传入参数的个数</p>
+<pre><code>function sum(a,b) {
+// 获取函数的实际传入的参数的个数
+console.log(sum.arguments.length);
+// 获取函数定义的参数个数
+console.log(sum.length);
+
+alert(a+b);
+}
+sum(1,2,3);
+</code></pre>
+
+</li>
+<li>
+<p>5.函数的返回值</p>
+<pre><code>function sum(a,b) {
+    return a+b;
+}
+// 将函数执行的结果赋值给变量 s
+var s = sum(1,2,3);
+console.log(s);
+</code></pre>
+
+<p>使用return 结束并返回  return后面的代码不再执行</p>
+</li>
+<li>
+<p>6.函数的变量提升</p>
+<pre><code>var a = 10;
+function fn() {
+    console.log(a);
+    var a = 20;
+}
+fn();
+</code></pre>
+
+<p>如果函数内部有变量和函数外部的变量是一样的,会优先取函数内部的变量
+如果在使用后面定义变量,这个时候就会将函数的声明定义在使用之前,而赋值还在函数后面</p>
+</li>
+</ul>
+<h4>09-数学库的认识以及parseInt()  parseFlot()</h4>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

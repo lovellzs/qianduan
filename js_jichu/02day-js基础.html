@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>02day-js基础</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>02day-js基础</h2>
+<h4>1.利用js可以操作样式和结构</h4>
+<ul>
+<li>
+1.DOM树
+<img src="./images/dom.png" />
+</li>
+<li>
+<p>2.利用DOM树访问HTML元素(节点)</p>
+<ul>
+<li>通过使用 getElementById() 方法</li>
+<li>
+<p>getElementById() 方法返回带有指定 ID 的元素</p>
+<pre><code>// 1.获取id为box的盒子
+var box = document.getElementById('box');
+console.log(box);
+// 2.修改样式 js操作盒子的样式大多数都是设置行内样式
+box.style.width = '400px';
+box.style.backgroundColor = 'yellow';
+</code></pre>
+
+</li>
+</ul>
+</li>
+<li>
+<p>3.操作结构 innerHTML属性</p>
+<ul>
+<li>
+<p>改变元素内容的最简单的方法是使用 innerHTML 属性</p>
+<pre><code>// 1.获取标签
+var box = document.getElementById('box');
+// 2.操作标签
+// innerHTML: 获取或者修改 标签里面的内容
+box.innerHTML = '&lt;h2&gt;我是标题&lt;/h2&gt;&lt;p&gt;我是段落&lt;/p&gt;';
+</code></pre>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4>2.事件的基本认识</h4>
+<pre><code>我点击了开关,灯亮了
+事件三要素 事件源 事件属性 事件指令
+事件源:开关 对应HTML中的标签
+事件属性: 做了什么动作, 点击
+事件指令: 做的一系列操作 造成的结果/影响,灯亮了
+三者结合起来: 事件源.事件属性 = 事件指令
+</code></pre>
+
+<ul>
+<li>事件属性
+<img src="./images/event.png" /></li>
+<li>
+<p>2.图片切换案例</p>
+<pre><code>// 1.获取标签
+var box = document.getElementById('box');
+// 2.绑定事件 onmouseover 鼠标经过
+box.onmouseover = function () {
+    box.src = 'images/22.jpg';
+};
+box.onmouseout = function () {
+    box.src = &quot;images/11.jpg&quot;;
+};
+</code></pre>
+
+</li>
+</ul>
+<h4>3.换肤效果案例  hao123换肤效果 给body设置背景</h4>
+<pre><code>// 1.获取body
+var body = document.body;
+body.style.background = 'url(images/1.jpg)';
+
+// 2.抽取函数 把相同的功能抽取出来,不同的做为参数传递
+function changeSkin(id,url) {
+    var dom = document.getElementById(id);
+    dom.onclick = function () {
+        body.style.background = url;
+    };
+}
+changeSkin('pic1','url(images/1.jpg)');
+changeSkin('pic2','url(images/2.jpg)');
+changeSkin('pic3','url(images/3.jpg)');
+changeSkin('pic4','url(images/4.jpg)');
+changeSkin('pic5','url(images/5.jpg)');
+</code></pre>
+
+<h4>4.电脑选取案例</h4>
+<pre><code>// 1.获取标签
+var box = document.getElementById('box');
+
+function changeBackground(id,url) {
+    var dom = document.getElementById(id);
+    dom.onmouseover = function () {
+        box.style.background = url;
+    };
+}
+changeBackground('li1','url(&quot;images/1big.jpg&quot;)');
+changeBackground('li2','url(&quot;images/2big.jpg&quot;)');
+changeBackground('li3','url(&quot;images/3big.jpg&quot;)');
+changeBackground('li4','url(&quot;images/4big.jpg&quot;)');
+changeBackground('li5','url(&quot;images/5big.jpg&quot;)');
+</code></pre>
+
+<h4>5.if语句的应用 美女竞价</h4>
+<pre><code>// 1.获取标签
+var oh2 = document.getElementById('oh2');
+var btn = document.getElementById('btn');
+
+btn.onclick = function () {
+    // 弹出一个输入框
+    /*
+    * '' 代表价格为空
+    * null 代表用户点击了取消
+    * */
+    var price = prompt('请输入价格');
+    console.log(price);
+
+    if(price != null){
+        if (price == ''){
+            // 价格为空,提示
+            alert('价格不能为空');
+        }else if(parseInt(price) &lt; 1000){
+            alert('美女很值钱,请重新竞价');
+        }else if(isNaN(parseInt(price)) == true){
+            // 用户输入的不是数字
+            alert('请输入数字');
+        } else {
+            oh2.innerHTML = '底价是' + price + '元';
+        }
+    }else {
+        console.log('用户点击了取消');
+    }
+}
+</code></pre>
+
+<p>NaN 不是一个数字, 但是一个number类型 NaN和自身不相等</p>
+<h4>6.switch应用</h4>
+<pre><code>// 1.获取标签
+var sel = document.getElementById('sel');
+sel.onchange = function () {
+//        alert(sel.value);
+    var str = '';
+    switch (sel.value){
+        case '春天':
+            str = '春意盎然';
+            break;
+        case '夏天':
+            str = '夏日炎炎';
+            break;
+        case '秋天':
+            str = '秋风瑟瑟';
+            break;
+        case '冬天':
+            str = '冬雪皑皑';
+            break;
+        default:
+            str = '未知';
+    }
+    alert(str);
+}
+</code></pre>
+
+<h4>7.食物选择</h4>
+<ul>
+<li>
+<p>html部分</p>
+<pre><code>&lt;div id=&quot;box&quot;&gt;
+&lt;span id=&quot;oSpan&quot;&gt;食物选取&lt;/span&gt;
+&lt;ul id=&quot;oUl&quot;&gt;
+    &lt;li&gt;苹果&lt;/li&gt;
+    &lt;li&gt;香蕉&lt;/li&gt;
+    &lt;li&gt;黄瓜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+</li>
+<li>
+<p>js部分</p>
+<pre><code>// 1.获取标签
+var box = document.getElementById('box');
+var oSpan = document.getElementById('oSpan');
+var oUl = document.getElementById('oUl');
+// 2.绑定事件
+box.onmouseover = function () {
+    oSpan.style.backgroundImage = 'url(&quot;images/down.gif&quot;)';
+    oUl.style.display = 'block';
+};
+box.onmouseout = function () {
+    oSpan.style.backgroundImage = 'url(&quot;images/up.gif&quot;)';
+    oUl.style.display = 'none';
+}
+</code></pre>
+
+</li>
+<li>display 元素隐藏后不占用位置</li>
+<li>visibility 元素隐藏后还继续占用原来的空间</li>
+</ul>
+<h4>8.transform属性</h4>
+<pre><code>// 1.获取标签
+var btn1 = document.getElementById('btn1');
+var btn2 = document.getElementById('btn2');
+var btn3 = document.getElementById('btn3');
+var btn4 = document.getElementById('btn4');
+var box = document.getElementById('box');
+// 2.添加事件
+// 平移
+btn1.onclick = function () {
+    box.style.transform = 'translate(100px,100px)';
+};
+// 旋转
+btn2.onclick = function () {
+    box.style.transform = 'rotate(45deg)';
+};
+// 缩放
+btn3.onclick = function () {
+    box.style.transform = 'scale(0.5,0.5)';
+}
+// 综合
+btn4.onclick = function () {
+    box.style.transform = ' translate(100px,100px)  rotate(45deg) scale(0.5,0.5)';
+}
+</code></pre>
+
+<h4>9.输入框的制作</h4>
+<pre><code>// 1.获取标签
+var input = document.getElementById('input1');
+var placeholder = '请输入产品名称';
+
+// 2.绑定事件
+// 当输入框成为焦点的时候会调用
+input.onfocus = function () {
+    if(input.value == placeholder){
+        input.value = '';
+        input.style.color = '#000';
+    }
+};
+// 输入框失去焦点
+input.onblur = function () {
+    if (input.value == ''){
+        input.value = placeholder;
+        input.style.color = '#ccc';
+    }
+}
+</code></pre>
+
+<h4>10.js引入的3中方法  行内式 内嵌式 外联式</h4>
+<h4>11. window.onload 当界面加载完毕的时候调用</h4>
+<pre><code>window.onload = function () {
+}
+</code></pre>
+
+<h4>12.数组</h4>
+<ul>
+<li>
+<p>1.数组的基本认识</p>
+<pre><code>数组是用来存储大批量的数据, js中的数组可以存储不同类型的数据
+var arr = [1,'2',true,null,undefined,'123',456];
+console.log(arr);
+</code></pre>
+
+<ul>
+<li>
+<p>1.数组创建的2种方式</p>
+<pre><code>var arr = new Array();
+var arr1 = [];
+</code></pre>
+
+</li>
+<li>
+<p>2.数组是有序的,可以通过下标值/索引值来获取 索引值从 0 开始</p>
+<pre><code>console.log(arr[0]);
+console.log(arr[1]);
+console.log(arr[2]);
+console.log(arr[3]);    
+</code></pre>
+
+</li>
+<li>
+<p>3.数组的遍历, 数组有一个length属性可以获取数组中元素个数</p>
+<pre><code>// 3.数组也可以采取遍历的方式取出元素
+for(var i = 0; i&lt;arr.length; i++){
+    console.log(arr[i]);
+}
+</code></pre>
+
+</li>
+</ul>
+</li>
+<li>
+<p>2.数组的应用 隔行变色</p>
+<ul>
+<li>box.getElementsByTagName('li'); 获取box里面所有的li标签,返回一个伪数组,目前可以认为是一个数组</li>
+</ul>
+</li>
+<li>3.全选,反选,不选</li>
+<li>
+<p>4.排他思想</p>
+<pre><code>// 1.获取按钮
+var list = document.getElementsByTagName('button');
+for(var i = 0; i&lt;list.length; i++){
+    // 绑定事件
+    list[i].onclick = fn;
+}
+function fn() {
+//            alert('点我啊');
+    // 1.取消所有的按钮选中
+    for(var j = 0; j&lt;list.length; j++){
+        list[j].className = '';
+    }
+    // 2.选中当前的按钮
+    // this 在事件指令中指向事件的调用者
+    this.className = 'curr';
+}
+</code></pre>
+
+</li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

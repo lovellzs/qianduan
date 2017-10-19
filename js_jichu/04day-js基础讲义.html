@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>04day-js基础讲义</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<p>04day-js基础讲义</p>
+<h4>01.点名册案例</h4>
+<pre><code>// 1.获取标签
+var btns = document.getElementById('box').getElementsByTagName('button');
+var oh1 = document.getElementById('oh1');
+// 2.添加事件
+// 开始
+var timer = null;
+var arr = ['张三','李四','王五','刘二麻子','二狗','小明','隔壁老王'];
+btns[0].onclick = function () {
+    // 清空定时器
+    clearInterval(timer);
+    timer = setInterval(function () {
+        // 1.生成随机数 生成 0-1的随机数,但是不能取到1
+        var randomNum = parseInt(Math.random() * arr.length);
+
+        // 2.从数组中取出值
+        oh1.innerHTML = arr[randomNum];
+    },10);
+};
+// 停止
+btns[1].onclick = function () {
+    clearInterval(timer);
+}
+</code></pre>
+
+<h4>02.长图展示</h4>
+<pre><code>// 1.获取标签
+var spans = document.getElementById('box').getElementsByTagName('span');
+var pic = document.getElementById('pic');
+
+// 2.添加事件
+var timer = null;
+var begin = 0;
+var speed = 4;
+spans[0].onmouseover = function () {
+    clearInterval(timer);
+    timer = setInterval(function () {
+        begin -= speed;
+        if (begin &lt;= -505){
+            clearInterval(timer);
+            begin = -505;
+        }
+        pic.style.top = begin + 'px';
+    },10)
+};
+spans[1].onmouseover = function () {
+    clearInterval(timer);
+    timer = setInterval(function () {
+        begin += speed;
+        if (begin &gt;= 0){
+            clearInterval(timer);
+            begin = 0;
+        }
+        pic.style.top = begin + 'px';
+    },10)
+}
+</code></pre>
+
+<h4>03.展示阴影</h4>
+<pre><code>&lt;div id=&quot;box&quot;&gt;
+    &lt;span id=&quot;cover&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+// 1.获取标签
+var box = document.getElementById('box');
+var cover = document.getElementById('cover');
+// 2.添加点击事件
+var timer = null;
+var begin = 150;
+box.onmouseover = function () {
+    clearInterval(timer);
+    timer = setInterval(function () {
+        begin -= 3;
+        if (begin &lt;= 0){
+            clearInterval(timer);
+            begin = 0;
+        }
+        cover.style.top = begin + 'px';
+    },10);
+}
+</code></pre>
+
+<h4>04.js定时器原理</h4>
+<ul>
+<li>一次定时器 在指定时间内, 将任务放入事件队列,等待js引擎空闲后被执行.</li>
+<li>setInterval(fn, 100)容易产生误区：并不是上一次fn执行完了之后再过100ms才开始执行下一次fn。 事实上，setInterval并不管上一次fn的执行结果，而是每隔100ms就将fn放入主线程队列，而两次fn之间具体间隔多久就不一定了。</li>
+<li>定时器的用处, 如果有很多节点渲染,可以将多个节点放入定时器中来执行,这样就不会阻塞线程,提高用户体验</li>
+</ul>
+<h4>05.一次定时器执行多次操作以及递归的认识</h4>
+<pre><code>var box = document.getElementById('box');
+    var timer = setTimeout(jump,1000);
+    var count = 5;
+    function jump() {
+        // 每次进来先清空上一个定时器
+        clearTimeout(timer);
+        count--;
+        box.innerHTML = '要在' + count + '秒后跳转';
+        if (count &lt;= 0){
+            window.location.href = 'http://www.baidu.com';
+        }else {
+//            timer = setTimeout(jump,1000);
+            timer = setTimeout(arguments.callee,1000);
+            // 递归:自己搞自己, 自己调用自己
+            // arguments.callee 在函数内部指的是函数本身
+        }
+    }
+</code></pre>
+
+<h4>06.简单轮播图的认识</h4>
+<pre><code>// 1.获取标签
+var oul = document.getElementById('oul');
+
+// 2.图片轮播
+// 初始值
+var begin = 0;
+setInterval(function () {
+    begin -= 4;
+    if (begin &lt;= -1200){
+        begin = 0;
+    }
+    oul.style.left = begin + 'px';
+},20)
+</code></pre>
+
+<h4>07.左右轮播图</h4>
+<pre><code>// 1.获取标签
+var spans = document.getElementById('box').getElementsByTagName('span');
+var oul = document.getElementById('oul');
+
+// 2.添加点击事件
+// 点击右侧
+var timer = null;
+// 偏移量
+var begin = 0;
+// 索引
+var loop = 0;
+// 速度
+var speed = 4;
+
+// 记录标志
+var flag = true;
+
+spans[1].onclick = function () {
+    if (flag == false) return;
+    flag = false;
+    // 页码自增1
+    loop++;
+    if (loop &gt; 5){
+        // 重置页码为1
+        loop = 1;
+        // 重置偏移量
+        begin = 0;
+    }
+    timer = setInterval(function () {
+        begin -= speed;
+        if (begin &lt;= loop * -640){
+            clearInterval(timer);
+            begin = -640 * loop;
+            flag = true;
+        }
+        oul.style.left = begin + 'px';
+    },10)
+};
+// 左边
+spans[0].onclick = function () {
+    if (flag == false) return;
+    flag = false;
+    loop--;
+    if (loop &lt; 0){
+        loop = 4;
+        begin = 5 * -640;
+    }
+    timer = setInterval(function () {
+        begin += speed;
+        if (begin &gt;= loop * -640){
+            clearInterval(timer);
+            begin = -640 *loop;
+            flag = true;
+        }
+        oul.style.left = begin + 'px';
+    },10);
+}
+</code></pre>
+
+<h4>08.发送验证码</h4>
+<pre><code>// 1.获取标签
+var btn = document.getElementById('btn');
+// 2.添加事件
+var timer = null;
+// 剩余的秒数
+var count = 5;
+btn.onclick = function () {
+    // 2.1 禁止按钮点击
+    this.disabled = true;
+
+    // this 在定时器中指向窗口,因为开启定时期的时候本身就是window.setInterval()
+    // 备份指针
+    var that = this;
+
+    // 2.2 倒计时
+    timer = window.setInterval(function () {
+        count--;
+        if(count &lt; 0){
+            clearInterval(timer);
+            count = 5;
+            that.disabled = false;
+            that.innerHTML = '重新发送验证码';
+        }else {
+            that.innerHTML = '剩余' + count + '秒';
+        }
+    },1000)
+}
+</code></pre>
+
+<h4>09.节点操作</h4>
+<pre><code>// 1.创建节点
+var h1 = document.createElement('h1');
+h1.innerHTML = '我是标题'; 
+// 2.添加节点
+// appendChild 在节点后面添加
+// document.body.appendChild(h1);
+var box = document.getElementById('box');
+// insertBefore 第一个参数是要插入的节点, 第二个参数是要插入到那个节点前面 如果为null则插入到最后面
+document.body.insertBefore(h1,box);
+
+// 创建节点
+var div = document.createElement('div');
+div.style.width = '200px';
+div.style.height = '200px';
+div.style.background = 'red';
+document.body.appendChild(div);
+
+// 3.删除节点 要删除的节点
+document.body.removeChild(box);
+// 4.克隆节点
+// cloneNode 如果为true就会复制节点里面的所有孩子节点,包括样式
+// 如果为false 就只是赋值自己
+var ele = box.cloneNode(false);
+console.log(ele);
+ele.style.marginTop = '10px';
+
+// 添加节点
+document.body.appendChild(ele);
+
+// 替换节点
+var box = document.getElementById('box');
+var h1 = document.createElement('h1');
+h1.innerHTML = '我是标题';
+document.body.replaceChild(h1,box);
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
