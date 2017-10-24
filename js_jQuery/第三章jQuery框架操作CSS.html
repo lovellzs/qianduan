@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><title>第三章 jQuery框架操作CSS</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 微软雅黑, 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h3 id="第三章-jquery框架操作css">第三章 jQuery框架操作CSS</h3>
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><ul>
+<li><a href="#第三章-jquery框架操作css">第三章 jQuery框架操作CSS</a><ul>
+<li><a href="#31-jquery框架的css方法">3.1 jQuery框架的CSS方法</a></li>
+<li><a href="#32-jquery框架操作class">3.2 jQuery框架操作Class</a></li>
+<li><a href="#33-jquery框架操作位置的方法介绍">3.3 jQuery框架操作位置的方法介绍</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h4 id="31-jquery框架的css方法">3.1 jQuery框架的CSS方法</h4>
+
+<p>jQuery框架提供了css方法，我们通过调用该方法传递对应的参数，可以方便的来批量设置标签的CSS样式。</p>
+
+<p>使用JavaScript设置标签的样式相对来说比较麻烦，而如果需要批量的设置多个标签的样式那需要写很多代码，使用jQuery可以为我们简化该过程。</p>
+
+<p><strong>使用原生的方式来设置标签的样式</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>我是div标签<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btnID"</span>&gt;</span>按钮<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-keyword">var</span> oBtn = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"btnID"</span>);<br>        oBtn.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>            <span class="hljs-keyword">var</span> oDiv = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">"div"</span>)[<span class="hljs-number">0</span>];<br>            oDiv.style.height = <span class="hljs-string">"50px"</span>;<br>            oDiv.style.width = <span class="hljs-string">"200px"</span>;<br>            oDiv.style.background = <span class="hljs-string">"red"</span>;<br>        }<br>    }<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre>
+
+<p><strong>使用jQuery中的css方法来设置标签的样式</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>我是div标签<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btnID"</span>&gt;</span>按钮<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery-3.2.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        $(<span class="hljs-string">"#btnID"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>            $(<span class="hljs-string">"div"</span>).css(<span class="hljs-string">"height"</span>,<span class="hljs-string">"50px"</span>).css(<span class="hljs-string">"width"</span>,<span class="hljs-string">"200px"</span>).css(<span class="hljs-string">"background"</span>,<span class="hljs-string">"red"</span>);<br>        })<br>    })<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre>
+
+<p><code>CSS方法的语法：</code></p>
+
+<p><code>①  $("selector").css(name,value);</code> <br>
+<code>② $("selector").css(name1,value).css(name2,value)...;</code> <br>
+<code>③ $("selector").css( { name1 : value , name2 : value})</code></p>
+
+<p><strong>代码示例</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs awk">&lt;script&gt;<br>    $(<span class="hljs-keyword">function</span> () {<br>        $(<span class="hljs-string">"#btnID"</span>).click(<span class="hljs-keyword">function</span> () {<br><br>            <span class="hljs-regexp">//</span><span class="hljs-number">01</span> CSS方法的第一种使用方式<br>            <span class="hljs-regexp">//</span>$(<span class="hljs-string">"div"</span>).css(<span class="hljs-string">"height"</span>,<span class="hljs-string">"50px"</span>);<br>            <span class="hljs-regexp">//</span>$(<span class="hljs-string">"div"</span>).css(<span class="hljs-string">"width"</span>,<span class="hljs-string">"200px"</span>);<br>            <span class="hljs-regexp">//</span>$(<span class="hljs-string">"div"</span>).css(<span class="hljs-string">"background"</span>,<span class="hljs-string">"red"</span>);<br><br><br>            <span class="hljs-regexp">//</span><span class="hljs-number">02</span> CSS方法的第二种使用方式:链式编程<br>            <span class="hljs-regexp">//</span>$(<span class="hljs-string">"div"</span>).css(<span class="hljs-string">"height"</span>,<span class="hljs-string">"50px"</span>).css(<span class="hljs-string">"width"</span>,<span class="hljs-string">"200px"</span>).css(<span class="hljs-string">"background"</span>,<span class="hljs-string">"red"</span>);<br><br>            <span class="hljs-regexp">//</span><span class="hljs-number">03</span> CSS方法的第三种使用方式:传递样式键值对的对象作为参数<br>            $(<span class="hljs-string">"div"</span>).css({<br>                <span class="hljs-string">"height"</span>:<span class="hljs-string">"100px"</span>,<br>                <span class="hljs-string">"width"</span>:<span class="hljs-string">"200px"</span>,<br>                <span class="hljs-string">"background"</span>:<span class="hljs-string">"red"</span><br>            })<br>        })<br>    })<br>&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre>
+
+
+
+<h4 id="32-jquery框架操作class">3.2 jQuery框架操作Class</h4>
+
+<p>jQuery框架中操作class的方法主要有</p>
+
+<blockquote>
+  <p>addClass : 为选中的所有标签批量的添加Class <br>
+  hasClass：检查选定的标签中是否存在指定的Class <br>
+  removeClass：把选定标签中指定的Class删除 <br>
+  toggleClass： 切换Class</p>
+</blockquote>
+
+<p><code>addClass：</code>为选中的所有标签批量的添加Class，语法</p>
+
+<p><code>① $("selector")addClass("class1");</code> <br>
+<code>② $("selector")addClass("class1 class2");</code> <br>
+<code>③ $("selector")addClass("class1").addClass("class2");</code></p>
+
+<hr>
+
+<p><code>hasClass：</code>检查选定的标签中是否存在指定的Class,只要选中的所有标签中有一个标签存在该Class，那么就把返回true,如果选中的所有标签中都没有找到该class ，那么就返回false。语法为： <br>
+<code>$("selector")hasClass("class1");</code></p>
+
+<hr>
+
+<p><code>removeClass：</code>把所有选定标签中指定的Class删除，遍历jQuery实例对象中所有的标签，如果当前标签中存在该指定的class，那么就删除，如果不存在，则不作处理。语法</p>
+
+<p><code>① $("selector")removeClass("class1");</code> <br>
+<code>② $("selector")removeClass("class1 class2");</code> <br>
+<code>③ $("selector")removeClass("class1").removeClass("class2");</code></p>
+
+<hr>
+
+<p><code>toggleClass：</code>切换所有选中标签的Class，如果当前标签中存在指定的Class，那么就删除，如果不存在，那么就添加。语法</p>
+
+<p><code>① $("selector")toggleClass("class1");</code> <br>
+<code>② $("selector")toggleClass("class1 class2");</code> <br>
+<code>③ $("selector")toggleClass("class1").toggleClass("class2");</code></p>
+
+<p><strong>代码示例</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs">&lt;!DOCTYPE html&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"JS/jquery-3.2.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><br>        <span class="hljs-selector-class">.class1</span>{<br>            <span class="hljs-attribute">width</span>: <span class="hljs-number">400px</span>;<br>            <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>            <span class="hljs-attribute">background</span>: red;<br>        }<br><br>        <span class="hljs-selector-class">.class2</span>{<br>            <span class="hljs-attribute">width</span>: <span class="hljs-number">600px</span>;<br>            <span class="hljs-attribute">background</span>: green;<br>            <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#000000</span>;<br>        }<br>    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-comment">//....</span><br>        <span class="hljs-comment">//jQuery对Class的操作:</span><br>        <span class="hljs-comment">//添加class addClass</span><br>        <span class="hljs-comment">//删除class removeClass</span><br>        <span class="hljs-comment">//检查class hasClass</span><br>        <span class="hljs-comment">//切换class toggleClass</span><br><br>        <span class="hljs-comment">//01 添加class</span><br>        $(<span class="hljs-string">"button"</span>).eq(<span class="hljs-number">0</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>            <span class="hljs-comment">//console.log("点击");</span><br>            <span class="hljs-comment">//获取指定的标签,并且设置class</span><br>            <span class="hljs-comment">//添加class:</span><br>            <span class="hljs-comment">//(1) jQ对象.addClass("类")</span><br>            <span class="hljs-comment">//(2) jQ对象.addClass("类1")..addClass("类2")</span><br>            <span class="hljs-comment">//(3) jQ对象.addClass("类1 类2")</span><br><br>            <span class="hljs-comment">//$("div").addClass("class1")</span><br>            <span class="hljs-comment">//$("div").addClass("class1").addClass("class2")</span><br>            $(<span class="hljs-string">"div"</span>).addClass(<span class="hljs-string">"class1 class2"</span>)<br>        })<br><br>        <span class="hljs-comment">//02 检查class</span><br>        $(<span class="hljs-string">"button"</span>).eq(<span class="hljs-number">1</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>            <span class="hljs-comment">//console.log("点击");</span><br>            <span class="hljs-comment">//获取指定的标签,并且设置class</span><br>            <span class="hljs-comment">//检查class:检查div标签中是否存在class1,如果存在那么就返回true,否则返回false</span><br>            <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">"div"</span>).hasClass(<span class="hljs-string">"class1"</span>));<br>            <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">"p"</span>).hasClass(<span class="hljs-string">"demo1"</span>));<br>        })<br><br>        <span class="hljs-comment">//03 删除class</span><br>        $(<span class="hljs-string">"button"</span>).eq(<span class="hljs-number">2</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>            <span class="hljs-comment">//console.log("点击");</span><br>            <span class="hljs-comment">//获取指定的标签,并且设置class</span><br>            <span class="hljs-comment">//删除class:</span><br>            <span class="hljs-comment">//(1) jQ对象.removeClass("类")</span><br>            <span class="hljs-comment">//(2) jQ对象.removeClass("类1")..removeClass("类2")</span><br>            <span class="hljs-comment">//(3) jQ对象.removeClass("类1 类2")</span><br><br>            <span class="hljs-comment">//$("div").removeClass("class2")</span><br>            <span class="hljs-comment">//$("div").removeClass("class1").removeClass("class2")</span><br>            $(<span class="hljs-string">"div"</span>).removeClass(<span class="hljs-string">"class1 class2"</span>)<br>        })<br><br>        <span class="hljs-comment">//04 切换class</span><br>        $(<span class="hljs-string">"button"</span>).eq(<span class="hljs-number">3</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>            <span class="hljs-comment">//console.log("点击");</span><br>            <span class="hljs-comment">//获取指定的标签,并且设置class</span><br>            <span class="hljs-comment">//切换class:如果指定的class存在那么就删除,否则就添加</span><br><br>            <span class="hljs-comment">//(1) jQ对象.toggleClass("类")</span><br>            <span class="hljs-comment">//(2) jQ对象.toggleClass("类1 类2")</span><br>            <span class="hljs-comment">//$("div").toggleClass("class2")</span><br>            $(<span class="hljs-string">"div"</span>).toggleClass(<span class="hljs-string">"class1 class2"</span>)<br>        })<br>    })<br><br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>我是div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>添加<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>检查<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>删除<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>切换<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></code></pre>
+
+
+
+<h4 id="33-jquery框架操作位置的方法介绍">3.3 jQuery框架操作位置的方法介绍</h4>
+
+<p><strong>代码示例</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"JS/jquery-3.2.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"><br>       <span class="hljs-selector-class">.class1</span>{<br>           <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;<br>           <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;<br>           <span class="hljs-attribute">background</span>: rebeccapurple;<br>           <span class="hljs-attribute">position</span>: relative;<br>       }<br><br>        <span class="hljs-selector-class">.class2</span>{<br>            <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;<br>            <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>            <span class="hljs-attribute">background</span>: <span class="hljs-number">#2aa198</span>;<br>            <span class="hljs-attribute">left</span>: <span class="hljs-number">10px</span>;<br>            <span class="hljs-attribute">top</span>:<span class="hljs-number">20px</span>;<br>            <span class="hljs-attribute">position</span>: absolute;<br>        }<br>    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-comment">//....</span><br>        <span class="hljs-comment">//01 width和height:</span><br>        <span class="hljs-comment">//console.log($(".class2").get(0));</span><br>        <span class="hljs-comment">//获取宽度和高度:不传递参数</span><br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).width());<br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).height());<br>        <span class="hljs-comment">//设置宽度和高度:传递参数</span><br>        $(<span class="hljs-string">".class2"</span>).width(<span class="hljs-number">100</span>);<br>        $(<span class="hljs-string">".class2"</span>).height(<span class="hljs-number">100</span>);<br><br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).width());<br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).height());<br><br>        <span class="hljs-comment">//02 位置:获取当前标签距离窗口的位置 offset</span><br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).offset().left);<br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).offset().top);<br><br>        <span class="hljs-comment">//03 位置:获取当前标签距离父标签的位置 position</span><br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).position().left);<br>        <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".class2"</span>).position().top);<br>    })<br><br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"class1"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"class2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre>
+
+<p><strong>【1】 width和height</strong></p>
+
+<p><code>$("selector").width()和$("selector").height()方法的使用：如果不传递参数则表示获取指定标签的宽度|高度，如果传递参数则表示要设置标签的宽度|高度。</code></p>
+
+<p><strong>【2】 offset和position</strong></p>
+
+<p><code>offset表示获取当前标签距离浏览器窗口的位置，而position获取当前标签距离父标签的位置</code></p>
+
+<hr>
+
+<ul><li>Posted by 博客园·<a href="http://www.cnblogs.com/wendingding/" target="_blank">文顶顶</a> ~ <a href="https://flowerfield.github.io" target="_blank">花田半亩</a></li>
+<li>联系作者 简书·<a href="http://www.jianshu.com/users/c5703017b9f5/latest_articleshttp://www.jianshu.com/users/c5703017b9f5/latest_articles" target="_blank">文顶顶</a> 新浪微博·<a href="http://weibo.com/p/1005053800117445/home?from=page_100505&amp;mod=TAB#place" target="_blank">文顶顶_iOS</a></li>
+<li>原创文章，版权声明：自由转载-非商用-非衍生-保持署名 | <a href="http://www.cnblogs.com/wendingding/" target="_blank">文顶顶</a></li>
+</ul></div></body></html>

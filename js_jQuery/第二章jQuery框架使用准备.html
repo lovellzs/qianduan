@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><title>第二章 jQuery框架使用准备</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 微软雅黑, 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h3 id="第二章-jquery框架使用准备">第二章 jQuery框架使用准备</h3>
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><ul>
+<li><a href="#第二章-jquery框架使用准备">第二章 jQuery框架使用准备</a><ul>
+<li><a href="#21-jquery框架和javascript加载模式对比">2.1 jQuery框架和JavaScript加载模式对比</a></li>
+<li><a href="#22-jquery框架解决冲突">2.2 jQuery框架解决冲突</a></li>
+<li><a href="#23-jquery对象和dom对象的相互转换">2.3 jQuery对象和DOM对象的相互转换</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h4 id="21-jquery框架和javascript加载模式对比">2.1 jQuery框架和JavaScript加载模式对比</h4>
+
+<p><strong>jQuery框架的加载模式</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs">&lt;script&gt;<br>    <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"window.onload——1"</span>)<br>    };<br><br>    <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"window.onload——2"</span>)<br>    }<br>&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre>
+
+<p>打印结果：window.onload——2</p>
+
+<p><strong>JavaScript的加载模式</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery-3.2.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"$().ready——1"</span>)<br>    });<br><br>    $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"ready——2"</span>)<br>    })<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre>
+
+<p>打印结果：ready——1      ready——2</p>
+
+<p><strong>两种加载模式对比</strong> <br>
+<code>① 执行时机不相同</code></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs livescript"><span class="hljs-built_in">window</span>.onload方法需要等所有的资源（CSS<span class="hljs-string">\JS\图片等）都加载完毕后执行包裹代码。</span><br>jQuery框架的ready方法等DOM结构加载完毕后执行包裹代码。<br></code></pre>
+
+<p><code>② 执行次数不相同</code></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs excel">window.onload方法，<span class="hljs-built_in">N</span>次只会执行一次，后面的会把前面的覆盖。<br>jQuery框架的ready方法，<span class="hljs-built_in">N</span>次会执行<span class="hljs-built_in">N</span>次，不存在覆盖的问题。<br></code></pre>
+
+<p><code>③ 简写方式不相同</code></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript">jQuery框架中的加载方式可以简写为：<br>$().ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{}）<br>$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{})<br></code></pre>
+
+
+
+<h4 id="22-jquery框架解决冲突">2.2 jQuery框架解决冲突</h4>
+
+<p>在实际的开发中，我们的项目中可能需要用到并引入多个第三方框架，如果这些框架本身在设计的时候，没有命名空间的约束，那么库与库之间发生冲突将在所难免。</p>
+
+<p>jQuery框架在设计的使用，使用闭包的形式在所有的代码都封装到一个<strong>立即调用函数</strong>中，对外仅仅提供了美元符号和jQuery作为框架的入口。</p>
+
+<p>jQuery当中所有的操作都是使用<strong>美元符号</strong>或者是<strong>jQuery对象</strong>进行的。假如，我们在使用jQuery框架之前已经在页面的代码中用到了美元符号，那么这种情况下，我们再按照常规的方式使用jQuery就可能会发生错误。</p>
+
+<p>为了避免这种情况的发生，jQuery框架使用noConflict方法,可以在使用之前把美元符号替换成其它的标识符，相当于是给jQuery对象换个其他的名字。</p>
+
+<p><strong>代码示例</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs">&lt;script src=<span class="hljs-string">"jquery-3.1.1.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br>&lt;script&gt;<br>    <span class="hljs-keyword">var</span> $ = <span class="hljs-string">"文顶顶"</span>;<br>    $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"DOM加载完毕"</span>);<br>    })<br>&lt;<span class="hljs-regexp">/script&gt;</span><br></code></pre>
+
+<p><strong>代码说明</strong> <br>
+    如果直接执行上面的代码，那么会报错。 <br>
+    报错信息：<code>Uncaught TypeError: $ is not a function</code> <br>
+    报错原因：美元符号被定义为字符串，jQuery框架中美元符号被覆盖。</p>
+
+<p><strong>解决冲突</strong>（给jQuery框架安排新的代言人）</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    <span class="hljs-comment">//在$符号被定义之前使用noConflict方法来重新设置名称</span><br>    <span class="hljs-keyword">var</span> jq = $.noConflict();<br><br>    <span class="hljs-comment">// $符号可能被定义为字符串或其他数据</span><br>    <span class="hljs-keyword">var</span> $ = <span class="hljs-string">"文顶顶"</span>;<br><br>    <span class="hljs-comment">//解决冲突之后,使用新设置的名称来操作</span><br>    jq(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"DOM加载完毕"</span>);<br>    })<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre>
+
+
+
+<h4 id="23-jquery对象和dom对象的相互转换">2.3 jQuery对象和DOM对象的相互转换</h4>
+
+<p><strong>DOM对象</strong>：每个HTML页面都是一个 DOM对象(<code>Document Object Model</code>，文本对象模型)，通过传统的JavaScript方法访问页面中的元素，就是访问 DOM 对象。</p>
+
+<p><strong>jQuery对象</strong>：在 jQuery框架中，通过本身自带的方法获取页面元素的对象，称为 jQuery 对象 ; ps:<code>其实jQuery本身只是个工厂函数，我们通常意义上所说的jQuery实例对象其实是jQuery的原型对象上面的init方法创建出来的实例对象。即 jQuery对象 = new jQuery.prototype.init() , 只是因为init方法和jQuery构造函数共用相同的原型对象，所以我们才会称init构造函数创建出来的对象为jQuery实例对象</code>。</p>
+
+<p><strong>代码示例</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>&gt;</span>我是div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery-3.2.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    <span class="hljs-comment">//通过DOM提供的api获取页面中所有class为box的标签</span><br>    <span class="hljs-keyword">var</span> oDiv = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">"box"</span>);<br>    <span class="hljs-built_in">console</span>.log(oDiv);<br><br>    <span class="hljs-comment">//通过jQuery提供的方法获取页面中所有class为box的标签</span><br>    <span class="hljs-keyword">var</span> ojQueryObj = $(<span class="hljs-string">"div"</span>);<br>    <span class="hljs-built_in">console</span>.log(ojQueryObj);<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre>
+
+<p><strong>DOM对象和jQuery对象的转换</strong></p>
+
+<p>DOM对象可以理解为标签对象，我们在操作这些标签的时候，有很多标签自带的方法可以使用，如innerHTML、innerText属性，或者是appendChild方法等。</p>
+
+<p>jQuery对象可以理解为jQuery初始化方法这个构造函数创建的实例化对象，因为它的原型对象为jQuery.prototype，因此所有的jQuery实例对象都可以访问jQuery原型对象上面的成员[属性或方法]，如html、text方法等。</p>
+
+<p><code>注意： <br>
+DOM对象不能直接访问jQuery原型对象上面的成员，jQuery对象也不能直接访问标签对象上面的成员，如需访问则应该先进行转换。</code></p>
+
+<p><strong>DOM标签对象     -&gt;   jQuery实例对象 </strong>     $(DOM标签对象) <br>
+<strong>jQuery实例对象  -&gt;       DOM标签对象 </strong>    jQuery对象.get(index) | jQuery对象[index]</p>
+
+<p><strong>代码示例</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>&gt;</span>我是div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery-3.1.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><br>    <span class="hljs-comment">//通过DOM提供的api获取页面中所有class为box的标签</span><br>    <span class="hljs-keyword">var</span> oDiv = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">"box"</span>)[<span class="hljs-number">0</span>];<br><br>    <span class="hljs-comment">//通过jQuery提供的方法获取页面中所有class为box的标签</span><br>    <span class="hljs-keyword">var</span> ojQueryObj = $(<span class="hljs-string">"div"</span>);<br><br>    <span class="hljs-comment">//DOM -&gt; jQuery</span><br>    <span class="hljs-built_in">console</span>.log($(oDiv).html());<br>    <span class="hljs-comment">//jQuery -&gt; DOM</span><br>    <span class="hljs-built_in">console</span>.log(ojQueryObj.get(<span class="hljs-number">0</span>));<br>    <span class="hljs-built_in">console</span>.log(ojQueryObj[<span class="hljs-number">0</span>]);<br></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre>
+
+<hr>
+
+<ul><li>Posted by 博客园·<a href="http://www.cnblogs.com/wendingding/" target="_blank">文顶顶</a> ~ <a href="https://flowerfield.github.io" target="_blank">花田半亩</a></li>
+<li>联系作者 简书·<a href="http://www.jianshu.com/users/c5703017b9f5/latest_articleshttp://www.jianshu.com/users/c5703017b9f5/latest_articles" target="_blank">文顶顶</a> 新浪微博·<a href="http://weibo.com/p/1005053800117445/home?from=page_100505&amp;mod=TAB#place" target="_blank">文顶顶_iOS</a></li>
+<li>原创文章，版权声明：自由转载-非商用-非衍生-保持署名 | <a href="http://www.cnblogs.com/wendingding/" target="_blank">文顶顶</a></li>
+</ul></div></body></html>

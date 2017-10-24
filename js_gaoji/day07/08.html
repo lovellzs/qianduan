@@ -1,0 +1,633 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>单例模式的实现方案 | 第七天</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./09.html" />
+    
+    
+    <link rel="prev" href="./07.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="0.8" data-basepath="." data-revision="1488497428205">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         JS高级
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="0.1" data-path="01.html">
+            
+                
+                    <a href="./01.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         函数属性（属性缓存）
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="02.html">
+            
+                
+                    <a href="./02.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         命名空间模式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.3" data-path="03.html">
+            
+                
+                    <a href="./03.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                         通用的命名空间函数
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.4" data-path="04.html">
+            
+                
+                    <a href="./04.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                         笔试题练习01
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.5" data-path="05.html">
+            
+                
+                    <a href="./05.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                         笔试练习题02
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.6" data-path="06.html">
+            
+                
+                    <a href="./06.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.6.</b>
+                        
+                         设计模式简单说明
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.7" data-path="07.html">
+            
+                
+                    <a href="./07.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.7.</b>
+                        
+                         单例模式简单介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="0.8" data-path="08.html">
+            
+                
+                    <a href="./08.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.8.</b>
+                        
+                         单例模式的实现方案
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.9" data-path="09.html">
+            
+                
+                    <a href="./09.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.9.</b>
+                        
+                         工厂模式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.10" data-path="10.html">
+            
+                
+                    <a href="./10.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.10.</b>
+                        
+                         观察者模式（发布-订阅）
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.11" data-path="11.html">
+            
+                
+                    <a href="./11.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.11.</b>
+                        
+                         观察者模式实现小案例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >第七天</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_158">
+                    
+                        <p><strong>使用new操作符创建对象实现单例</strong></p>
+<pre><code>实现单例模式的几种途径
+    ① 在代码中提供一个全局变量来存储创建出来的实例 缺点:该全局变量可能会被轻易的修改和覆盖
+    ② 尝试在构造函数的静态成员中缓存实例属性。缺点:函数的静态属性在外部可以直接修改,容易导致实例对象的丢失。
+    ③ 将实例对象包装在闭包中。优点是安全性较好,无法被轻易的修改,缺点是有额外闭包的开销。
+</code></pre><p>代码示例</p>
+<pre><code>    function China() {
+
+    }
+
+    //创建对象
+    var china01 = new China();
+    var china02 = new China();
+
+    //思考:如果想要实现单例模式,那么最终的结果必要是china01 和china02是同一个对象,那么如何实现
+</code></pre><p><strong>实现方案(一)使用全局变量方式存储创建出来的实例对象</strong></p>
+<p>代码示例</p>
+<pre><code>&lt;script&gt;
+
+    //01 提供一个全局变量
+    var instance;
+
+    //02 提供一个构造函数
+    function Person() {
+
+        if (instance == undefined)
+        {
+            instance = this;
+        }
+
+        this.name = &quot;默认的名称&quot;;
+        this.age = 66;
+
+        //使用全局变量来接收内部创建出来的实例对象(this)
+        return instance;
+    }
+
+    //03 使用构造函数创建对象
+    var p1 = new Person();
+    var p2 = new Person();
+    console.log(p1 == p2);
+    console.log(p1.name);
+    console.log(p2.name);
+    p1.name = &quot;修改之后的名称&quot;;
+    console.log(p1.name);
+    console.log(p2.name);
+
+    //说明:在上面的方案中我们使用一个全局变量来接收实例对象的值,在构造函数内部也是通过判断这个全局变量来做一些其他的处理
+    instance = {};
+    var p3 = new Person();
+    console.log(p1 == p3);
+&lt;/script&gt;
+</code></pre><p><code>说明：</code>这种方法确实可以实现单例模式,但是并不安全,因为全局变量可能会被轻易的修改或者是覆盖,因此不推荐这种方式。</p>
+<p><strong>实现方案(二)通过构造函数静态属性来缓存实例对象</strong></p>
+<pre><code>&lt;script&gt;
+
+    //01 提供一个构造函数
+    function Person() {
+
+        //02 在内部判断构造函数的静态属性中是否拥有实例对象
+        //如果拥有实例对象,那么就直接返回,否则就设置实例对象,并赋值给构造函数的静态属性
+        if (typeof Person.instance == &quot;object&quot;)
+        {
+            return Person.instance;
+        }
+
+        //设置实例对象的属性和方法
+        this.name = &quot;默认的名称&quot;;
+        this.age = 66;
+
+        //03 把内部创建的实例化对象赋值给构造函数的静态属性
+        Person.instance = this;
+
+        //显示返回
+        //return Person.instance;
+
+        //隐式返回
+        //return this;
+    }
+
+    //04 创建实例对象
+    var p1 = new Person();
+    var p2 = new Person();
+    console.log(p1 == p2);
+
+    Person.instance = {};
+    var p3 = new Person();
+    console.log(p1 == p3);      //false
+&lt;/script&gt;
+</code></pre><p><code>说明：</code>在构造函数外部可以直接访问其静态成员(属性和方法),可能会导致实例对象的丢失。</p>
+<p><strong>实现方案(二)通过闭包-惰性函数定义来实现</strong></p>
+<pre><code>&lt;script&gt;
+
+    //01 提供一个构造函数
+    function Person() {
+
+        //02 在函数内部使用私有变量来缓存实例
+        var instance = this;
+
+        //03 设置实例对象的属性和方法
+        this.name = &quot;默认的姓名&quot;;
+        this.age = 66;
+
+        //04 使用惰性函数定义来更新构造函数的实现
+        //通过一个闭包来返回缓存的实例对象
+        Person = function () {
+            return instance;
+        }
+    }
+
+    //05 创建对象
+    var p1 = new Person();
+    var p2 = new Person();
+    console.log(p1 == p2);
+
+    //代码说明:第一次调用原始构造函数的时候,它会像往常一样返回this(指向内部新创建的实例对象)
+    //再后面调用的时候,它会执行更新后的构造函数,在这个新的函数实现中,我们通过闭包来访问了私有变量,并简单的返回。
+    //这个instance私有变量存储的是第一次调用构造函数时创建出来的实例对象
+&lt;/script&gt;
+</code></pre><p><strong>新的问题</strong>
+<code>01 因为内部使用惰性函数定义(重写构造函数会导致之前添加在构造函数中的属性丢失),所以存在属性丢失问题</code>
+<code>02 在上面的代码中,体现在于创建对象前后设置的构造函数的原型对象丢失问题</code></p>
+<p>代码示例</p>
+<pre><code>&lt;script&gt;
+    function Person() {
+        var instance = this;
+
+        this.name = &quot;默认的姓名&quot;;
+        this.age = 66;
+
+        Person = function () {
+            return instance;
+        }
+    }
+
+    //设置构造函数的原型对象
+    Person.prototype.des = &quot;描述信息&quot;;
+    var p1 = new Person();
+
+    //在创建第一个对象之后,设置原型对象
+    Person.prototype.someThing = &quot;something&quot;;
+
+    var p2 = new Person();
+    console.log(p1 == p2);
+
+    console.log(p1.des);        //描述信息
+    console.log(p2.des);        //描述信息
+
+    console.log(p1.someThing);  //undefined
+    console.log(p2.someThing);  //undefined
+
+    //打印对象的构造函数
+    console.log(p1.constructor.name);       //Person
+    console.log(p2.constructor.name);       //Person
+
+    //判断对象的构造函数
+    console.log(p1.constructor == Person);  //false
+    console.log(p1.constructor == p2.constructor,&quot;构造函数是否一致&quot;);
+
+&lt;/script&gt;
+</code></pre><p><strong>解决问题的核心过程</strong></p>
+<p><code>01 提供一个构造函数</code></p>
+<p><code>02 在构造函数内部提供一个私有变量instance</code></p>
+<p><code>03 重写构造函数,返回私有变量instance</code></p>
+<p><code>04 把原有的原型对象赋值给新Person构造函数的原型对象</code></p>
+<p><code>05 调用new 构造函数方法创建一个实例化对象赋值给instance</code></p>
+<p><code>06 修正instance实例的构造器属性,指向新的构造函数(注意:虽
+然重写了构造函数,但是instance的构造函数仍然是以前的Person)</code></p>
+<p><code>07 设置实例属性和方法</code></p>
+<p><code>08 返回instance对象</code></p>
+<p>代码示例</p>
+<pre><code>&lt;script&gt;
+    function Person() {
+
+        //01 提供一个私有变量
+        var instance;
+
+        //02 重写构造函数
+        Person = function () {
+            console.log(instance);
+            //console.log(instance.constructor);
+            var t = this;
+            console.log(t);
+            return instance;
+        };
+
+        //03 保留原型属性
+        Person.prototype = this.__proto__;    //这是一个空的对象
+        Person.lal = &quot;lala&quot;;
+
+        //04 创建并使用私有变量来接收实例对象
+        instance = new Person();
+
+        //05 修正构造函数指针
+        instance.constructor = Person;
+
+        //06 设置实例属性和方法
+        instance.name = &quot;默认的名字&quot;;
+        instance.age = 66;
+
+        //07 返回私有变量
+        return instance;
+    }
+
+    Person.haha = &quot;哈哈&quot;;
+    //设置构造函数的原型对象
+    Person.prototype.des = &quot;描述信息&quot;;
+    var p1 = new Person();
+
+    //在创建第一个对象之后,设置原型对象
+    Person.prototype.someThing = &quot;something&quot;;
+
+    var p2 = new Person();
+    console.log(p1 == p2);
+
+    console.log(p1.des);        //描述信息
+    console.log(p2.des);        //描述信息
+
+    console.log(p1.someThing);  //something
+    console.log(p2.someThing);  //something
+
+    //打印构造器属性
+    console.log(p1.constructor == Person,&quot;验证构造器指向&quot;);
+
+&lt;/script&gt;
+</code></pre><p><strong>全局变量方式实现单例-改进版</strong></p>
+<pre><code>&lt;script&gt;
+
+    var Person;
+    (function () {
+
+        //01 提供一个局部变量instance
+        var instance;
+        Person = function Person() {
+
+            if (instance)
+            {
+                return instance;
+            }
+
+            instance = this;
+            this.name = &quot;默认的名字&quot;;
+            this.age = 66;
+        }
+    })();
+
+    //创建对象
+    var p1 = new Person();
+    var p2 = new Person();
+
+    console.log(p1 == p2);
+
+&lt;/script&gt;
+</code></pre><p>说明：<code>通过即时函数来限定作用域,外部无法修改内部instance的值(现在是一个局部变量)</code></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./07.html" class="navigation navigation-prev " aria-label="Previous page: 单例模式简单介绍"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./09.html" class="navigation navigation-next " aria-label="Next page: 工厂模式"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
