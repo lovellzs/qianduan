@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>网络相关基本概念 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./02.html" />
+    
+    
+    <link rel="prev" href="./index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="0.1" data-basepath="." data-revision="1496272566071">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         day01
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter active" data-level="0.1" data-path="01.html">
+            
+                
+                    <a href="./01.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         网络相关基本概念
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="02.html">
+            
+                
+                    <a href="./02.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         wamp的安装和使用
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.3" data-path="03.html">
+            
+                
+                    <a href="./03.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                         网络通信和请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.4" data-path="04.html">
+            
+                
+                    <a href="./04.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                         表单发送请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.5" data-path="05.html">
+            
+                
+                    <a href="./05.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                         Ajax发送get请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.6" data-path="06.html">
+            
+                
+                    <a href="./06.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.6.</b>
+                        
+                         Ajax发送post请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.7" data-path="07.html">
+            
+                
+                    <a href="./07.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.7.</b>
+                        
+                         中文和超时处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.8" data-path="08.html">
+            
+                
+                    <a href="./08.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.8.</b>
+                        
+                         php基础语法
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_3">
+                    
+                        <h1 id="">网络相关基本概念</h1>
+<p>01 基本概念</p>
+<pre><code>客户端（Client）：移动应用（iOS、android等应用）
+服务器（Server）：为客户端提供服务、提供数据、提供资源的机器
+请求（Request）：客户端向服务器索取数据的一种行为
+响应（Response）：服务器对客户端的请求做出的反应，一般指返回数据给客户端
+----
+作为前端开发工程师，主要的精力都是放在前端开发
+</code></pre><p>02 服务器介绍和分类</p>
+<pre><code>（1）简单介绍
+    服务器也是电脑，只不过是比我们的电脑配置更高的电脑，并且24小时不断电，不关机的计算机
+    服务器是专门用于存储数据电脑， 访问者可以访问服务器获得服务器上存储的资源
+    服务器其实就是一台&quot;提供了某种服务功能&quot;的电脑
+
+（2）服务器的分类
+    按照软件开发阶段来分，服务器可以大致分为2种
+    01 远程服务器
+        别名：外网服务器、正式服务器
+        使用阶段：应用上线后使用的服务器
+        使用人群：供全体用户使用
+        速度：取决于服务器的性能、用户的网速
+
+    02 本地服务器
+        别名：内网服务器、测试服务器
+        使用阶段：应用处于开发、测试阶段使用的服务器
+        使用人群：仅供公司内部的开发人员、测试人员使用
+        速度：由于是局域网，所以速度飞快，有助于提高开发测试效率
+
+    按服务器类型分:
+        文件服务器
+        数据库服务器
+        邮件服务器
+        Web 服务器等；
+
+    按软件类型分:
+        Apache服务器
+        IIS服务器
+        Tomcat服务器
+        Nginx 服务器
+        Node服务器等
+
+    按操作系统分:
+        Windows服务器
+        Linux服务器等；
+</code></pre><p>03 访问网页原理</p>
+<pre><code>1.访问网页时是有真实的、物理的文件传输的
+2.网页不是一个文件，而是一堆文件组成的
+3.我们之所以平常感觉第二次访问比第一次访问快的原因就是，第一次访问时已经将所有文件缓存到了本地
+</code></pre><p>04 浏览器请求数据的过程</p>
+<pre><code>1.按下回车时浏览器根据输入的URL地址发送请求报文给服务器
+2.服务器接收到请求报文，会对请求报文进行处理
+3.服务器将处理完的结果通过响应报文返回给浏览器
+4.浏览器解析服务器返回的结果，将结果显示出来
+</code></pre><p>05.如何让电脑能够提供某种服务?</p>
+<pre><code>如何让电脑可以聊天?听歌?浏览网页?
+想让电脑提供聊天服务, 可以安装相应的聊天软件, 例如:QQ/旺旺...
+想让电脑可以提供听歌服务, 可以安装相应音乐软件,例如:酷我音乐盒/酷狗音乐盒...
+想让电脑可以提供浏览网页服务, 可以安装相应浏览网页软件, 例如:谷歌浏览器/欧朋浏览器...
+</code></pre><p>06.如何让电脑提供接收到HTTP请求后返回网站的服务?</p>
+<pre><code>安装HTTP服务相关软件, 例如: Apache、IIS、Tomcat、Nginx、NodeJS等；
+安装了HTTP服务软件的电脑, 我们称之为&quot;HTTP服务器&quot;(网站服务器)
+</code></pre><p>07 常见的服务器软件</p>
+<pre><code>文件服务器软件：
+    Server-U、FileZilla、VsFTP等；
+数据库服务器软件：
+    Oracle、MySQL、PostgreSQL、MSSQL等；
+邮件服务器软件：
+    Postfix、Sendmail等；
+HTTP 服务器软件：
+    Apache、IIS、Tomcat、Nginx、NodeJS等；
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: day01"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./02.html" class="navigation navigation-next " aria-label="Next page: wamp的安装和使用"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

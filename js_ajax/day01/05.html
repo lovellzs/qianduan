@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Ajax发送get请求 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./06.html" />
+    
+    
+    <link rel="prev" href="./04.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="0.5" data-basepath="." data-revision="1496272566071">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         day01
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="0.1" data-path="01.html">
+            
+                
+                    <a href="./01.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         网络相关基本概念
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="02.html">
+            
+                
+                    <a href="./02.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         wamp的安装和使用
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.3" data-path="03.html">
+            
+                
+                    <a href="./03.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                         网络通信和请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.4" data-path="04.html">
+            
+                
+                    <a href="./04.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                         表单发送请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="0.5" data-path="05.html">
+            
+                
+                    <a href="./05.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                         Ajax发送get请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.6" data-path="06.html">
+            
+                
+                    <a href="./06.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.6.</b>
+                        
+                         Ajax发送post请求
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.7" data-path="07.html">
+            
+                
+                    <a href="./07.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.7.</b>
+                        
+                         中文和超时处理
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.8" data-path="08.html">
+            
+                
+                    <a href="./08.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.8.</b>
+                        
+                         php基础语法
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_7">
+                    
+                        <h1 id="ajaxget">Ajax发送get请求</h1>
+<p><strong>简单介绍</strong></p>
+<pre><code>Ajax是一门异步的用于发送网络请求的技术。
+全称为：Async javascript and XML
+UI刷新：通常情况下，每次提交表达的时候，都会刷新界面，而使用ajax发送请求可以实现异步发送请求获取数据而不刷新界面效果。
+
+具体示例：
+
+a.蘑菇街加载数据，页面的内容在不断的加载，但是整个页面并没有刷新。
+b.百度搜索框输入关键字，页面内容发生了变化，但是整个页面也没有刷新。
+以上都是应用ajax技术来实现的。
+
+具体说明：Ajax 这个概念是由 Jesse James Garrett 在 2005 年发明的。它本身不是单一技术,是一串技术的集合。
+
+Ajax的优点:
+    1）不需要插件支持(一般浏览器且默认开启 JavaScript 即可);
+    2）用户体验极佳(不刷新页面即可获取可更新的数据);
+    3）提升 Web 程序的性能(在传递数据的时候不必整体提交);
+    4）减轻服务器和带宽的负担(将服务器的一些操作转移到客户端);
+
+Ajax 的不足：
+    1）不同版本的浏览器度 XMLHttpRequest 对象支持度不足(比如 IE5 之前);
+    2）前进、后退的功能被破坏(因为 Ajax 永远在当前页,不会几率前后页面);
+    3）搜索引擎的支持度不够(搜索引擎爬虫还不能理解 JS引起变化数据的内容);
+    4）开发调试工具缺乏
+</code></pre><p><strong>使用Ajax发送网络请求的基本步骤</strong></p>
+<pre><code>01 创建异步对象（XMLHTTPRequest），存在兼容性问题
+02 请求请求路径（open）
+03 发送请求（send）
+04 监听请求的状态（onreadystatechange）
+05 处理请求结果
+
+onreadystatechange的几种状态：
+（1）请求未初始化 - 0
+（2）服务器连接已经建立 - 1
+（3）请求已经接收 -2
+（4）请求处理中 -3
+（5）请求已经完成，且响应已经就绪 -4
+
+处理请求结果
+（1）当请求完成的时候再进行处理，即readyState == 4
+（2）通过响应码判断只有请求成功的时候才进行处理，即响应码&gt;=200,&lt;300或者是=304（缓存）
+（3）拿到服务器返回的响应体：response.Text
+
+
+创建请求对象的兼容性处理：
+if（window.XMLHTTPRequest）
+{
+    var request = new XMLHTTPRequest();
+}else
+{
+    var request = new ActiveXObject(&quot;Microsoft&quot;,&quot;XMLHTTP&quot;);
+}
+</code></pre><p><strong>使用Ajax发送网络请求代码示例</strong></p>
+<p><strong>缓存处理</strong></p>
+<pre><code>在IE浏览器中（7），如果发送的是GET请求，那么只要URL没有发生变化，那么IE浏览器就会认为网页的内容也没有发生变化，因此会优先使用缓存数据，所以如果在IE浏览器中想让数据实时更新（获取到最新的数据），那么可以让每次请求的URL都不一样（即每次请求的URL地址不一样）。
+
+在开发中可以使用随机数因子或者是时间戳来添加一个额外的参数给url路径。
+（1）获取时间戳：var date = new Date();date.valueOf()
+（2）获取随机数因子 Math.radom()
+
+说明：
+为url添加随机数或者是时间戳的目的在于让每次请求的时候url的内容都不一样
+参数变化唯一的作用就是让每次发送网络请求的时候URL都不相同，以让服务器总是把最新的数据返回。
+</code></pre><p><strong>代码示例</strong></p>
+<pre><code>// 数据处理方法
+function json2str(data) {
+    var arr = [];
+    for(var key in data){
+        arr.push(key+&quot;=&quot;+data[key]);
+    }
+    // 不能直接将中文提交给服务器, 中文需要编码之后再提交
+    return encodeURI(arr.join(&quot;&amp;&quot;));
+}
+
+// 发送请求方法
+function myAjax(url, data,timeout,success, error) {
+    // 0.对参数进行处理
+    var res = json2str(data);
+
+// 1.创建异步对象
+if(window.XMLHttpRequest){
+    var xhr = new XMLHttpRequest();
+}else{
+    var xhr = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+}
+// 2.设置URL
+xhr.open(&quot;get&quot;, url+&quot;?&quot;+res, true);
+// 3.发送请求
+xhr.send();
+// 4.监听状态
+xhr.onreadystatechange = function () {
+    // 5.处理返回结果
+    if(xhr.readyState == 4){
+        // 清空定时器
+        clearTimeout(timer);
+        if(xhr.status &gt;= 200 &amp;&amp;
+            xhr.status &lt; 300 ||
+            xhr.status == 304){
+            success(xhr.responseText);
+        }else{
+            error(xhr.status);
+        }
+    }
+}
+// 6.对超时时间处理
+var timer = setTimeout(function () {
+    alert(&quot;超时了&quot;);
+    // 中断请求
+    xhr.abort();
+}, timeout);
+</code></pre><p>}</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./04.html" class="navigation navigation-prev " aria-label="Previous page: 表单发送请求"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./06.html" class="navigation navigation-next " aria-label="Next page: Ajax发送post请求"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
